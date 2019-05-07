@@ -1,0 +1,41 @@
+//  ===========================================
+//  Fixes
+//  ===========================================
+
+html {
+	box-sizing: border-box;
+}
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit; // box-sizing fix
+}
+
+//  ===========================================
+//  Variables
+//  ===========================================
+
+// --------------  Fonts //
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
+$font-primary: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// --------------  Colours //
+
+$color-blue--dark: #091b40;
+$color-blue--light: #194cf2;
+$color-red: #ff3300;
+$color-green: #70bf0d;
+$color-orange: #ffb700;
+$color-grey: #c9ccd4;
+
+//  ===========================================
+//  Mixins
+//  ===========================================

@@ -1,0 +1,115 @@
+//  ===========================================
+//  Global Layout
+//  ===========================================
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	background: $color-blue--dark;
+}
+
+svg {
+	overflow: visible;
+}
+
+//  ===========================================
+//  Vertical Container
+//  ===========================================
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100vh - 70px);
+}
+
+.container-wide {
+	@extend .container;
+	max-width: 1000px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+//  ===========================================
+//  Info Boxes
+//  ===========================================
+
+.boxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	max-width: 980px;
+	margin: 0 auto;
+	.location,
+	.weather {
+		width: 48%;
+		background: #fff;
+		box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.5);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.title-bar {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+		width: 100%;
+		.logo svg {
+			width: 280px;
+			height: 60px;
+		}
+	}
+}
+
+.weather .center {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;
+	.col {
+		width: 50%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	svg {
+		width: 55px;
+		height: 55px;
+		margin-right: 15px;
+	}
+	.summary {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		width: 100%;
+		div {
+			width: auto;
+		}
+	}
+}
+
+//  ===========================================
+//  Error
+//  ===========================================
+
+#messageContainer {
+	height: 38px;
+}
+.error,
+.success {
+	width: 100%;
+	padding: 10px;
+	display: block;
+}
+
+//  ===========================================
+//  Footer
+//  ===========================================
+
+footer {
+	width: 100%;
+	display: block;
+	padding: 10px;
+}
