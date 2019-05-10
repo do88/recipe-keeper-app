@@ -24,17 +24,20 @@ html {
 //  ===========================================
 
 // --------------  Fonts //
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
-$font-primary: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+$font-primary: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // --------------  Colours //
 
-$color-blue--dark: #091b40;
-$color-blue--light: #194cf2;
-$color-red: #ff3300;
-$color-green: #70bf0d;
-$color-orange: #ffb700;
-$color-grey: #c9ccd4;
+$color-red: #fe5858;
+$color-green: #63cab9;
+$color-purple: #635d9d;
+$color-yellow: #ffb548;
+$color-grey__light: #f7f7f7;
+$color-grey__medium: #808080;
+$color-grey__dark: #404040;
 
 //  ===========================================
 //  Mixins

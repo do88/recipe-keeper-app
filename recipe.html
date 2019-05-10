@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Recipe Keeper</title>
 	<link rel="icon" href="/src/img/Favicon.png">
+	<link rel="stylesheet" href="/src/scss/main.scss">
 
 </head>
 
@@ -49,23 +50,54 @@
 		<!-- Recipe container -->
 		<div class="recipe--container">
 			<div class="recipe--form">
-				<div class="recipe--form-meta">
-					<div class="recipe--form-meta-title">Title</div>
-					<div class="recipe--form-meta-edit">Edit</div>
-					<div class="recipe--form-meta-save">Save</div>
-				</div>
-				<div class="recipe--form-title">
-					<h1>Jacket potatoes with tuna and spring onions</h1>
-				</div>
-				<div class="recipe--form-details">
-					<div class="recipe--form-details">
 
+				<!-- Recipe title -->
+				<div class="recipe--form-labels">
+					<div class="recipe--form-labels-title">Title</div>
+					<div class="recipe--form-labels-edit">Edit</div>
+					<div class="recipe--form-labels-save">Save</div>
+					<div class="recipe--form-title">
+						<h1>Jacket potatoes with tuna and spring onions</h1>
+						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here...">
 					</div>
 				</div>
 
+				<!-- Recipe form details -->
+				<div class="recipe--form-details">
+					<div class="recipe--form-rating">
+						Set rating:<br>
+						<span>*****</span>
+					</div>
+					<div class="recipe--form-time">
+						Cooking time:<br>
+						<input type="number" id="cookingTime"><label>minutes</label>
+					</div>
+					<div class="recipe--form-type">
+						Meal type:<br>
+						<img src="/src/img/FishDish.svg" alt="">
+						<img src="/src/img/VegDish.svg" alt="">
+						<img src="/src/img/MeatDish.svg" alt="">
+					</div>
+				</div>
+				<!-- Recipe instructions -->
+				<div class="recipe--form-instructions">
+					<ol>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
+							<a href="#"><img src="/src/img/Cross.svg" alt="">Delete</a>
+						</li>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
+							<a href="#"><img src="/src/img/Cross.svg" alt="">Delete</a>
+						</li>
+					</ol>
+					<a href="#"><img src="/src/img/PlusSymbol.svg" alt="">Add</a>
+					<form>
+						<textarea name="" id="addInstruction" cols="30" rows="10"></textarea>
+						<button><img src="/src/img/PlusSymbol.svg" alt=""></button>
+					</form>
+					<a href="#" class="button button--grey" id="deleteRecipe">Delete Recipe</a>
+				</div>
+
 			</div>
-
-
 		</div>
 
 		<!-- Shopping list -->
@@ -78,17 +110,22 @@
 				<li>Tin of tuna <a href="#"><img src="/src/img/Cross.svg" alt="">Delete</a></li>
 				<li>Spring onions <a href="#"><img src="/src/img/Cross.svg" alt="">Delete</a></li>
 			</ul>
-			<a href="#">
-				<img src="/src/img/PlusSymbol.svg" alt="">
-				Add
-			</a>
+			<a href="#"><img src="/src/img/PlusSymbol.svg" alt="">Add</a>
+			<form>
+				<textarea name="" id="addIngredient" cols="30" rows="10"></textarea>
+				<button><img src="/src/img/PlusSymbol.svg" alt=""></button>
+			</form>
+			<a href="#" class="button button--grey" id="deleteRecipe">Delete All Ingredients</a>
 		</div>
 
-		<!-- FOOTER -->
-		<footer>
-			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> | <a href="index.html">Dash</a></p>
-		</footer>
-	</div>
+	</div><!-- End of container -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="container">
+			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> | <a href="/">Home</a></p>
+		</div>
+	</footer>
 
 
 	<script src="/src/js/app.js"></script>

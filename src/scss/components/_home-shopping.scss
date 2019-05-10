@@ -1,0 +1,24 @@
+//  ===========================================
+//  Home Shopping List
+//  ===========================================
+
+.shopping--container {
+	width: 31.03%;
+	.shopping-title {
+		display: flex;
+		justify-content: space-between;
+		h2,
+		a {
+			margin: 0;
+			align-self: center;
+		}
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			border-bottom: 1px dotted $color-grey__medium;
+			padding: 10px 0;
+		}
+	}
+}

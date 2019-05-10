@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Recipe Keeper</title>
 	<link rel="icon" href="/src/img/Favicon.png">
-
+	<link rel="stylesheet" href="/src/scss/main.scss">
 </head>
 
 <body>
@@ -16,18 +16,16 @@
 		<div class="container">
 			<!-- Header logo -->
 			<div class="header--logo">
-				<img src="/src/img/Logo.svg#Logo" alt="">
-				<!-- <svg>
+				<svg>
 					<use href="/src/img/Logo.svg#Logo"></use>
-				</svg> -->
+				</svg>
 			</div>
 			<!-- Header search form -->
 			<div class="header--search-form">
-				<img src="/src/img/SearchGlass.svg#SearchGlass" alt="">
-				<!-- <svg>
+				<svg>
 					<use href="/src/img/SearchGlass.svg#SearchGlass"></use>
-				</svg> -->
-				<input type="text" id="recipeSearch">
+				</svg>
+				<input type="text" id="recipeSearch" placeholder="Search your recipes here…">
 			</div>
 		</div>
 	</header>
@@ -64,7 +62,9 @@
 						Created: <span>6 days ago</span>
 					</div>
 					<div class="recipe--type">
-						<img src="/src/img/FishDish.svg" alt="">
+						<svg>
+							<use href="/src/img/FishDish.svg#FishDish"></use>
+						</svg>
 					</div>
 				</div>
 				<div class="recipe--title">
@@ -121,11 +121,14 @@
 			<a href="" class="button button--purple" id="printShopping">Print shopping list</a>
 		</div>
 
-		<!-- FOOTER -->
-		<footer>
+	</div><!-- End of container -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="container">
 			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> | <a href="/recipe.html">Recipe</a></p>
-		</footer>
-	</div>
+		</div>
+	</footer>
 
 
 	<script src="/src/js/app.js"></script>
