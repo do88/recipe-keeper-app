@@ -1,26 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Recipe Keeper</title>
 	<link rel="icon" href="/Favicon.e6429390.png">
+	<link rel="stylesheet" href="/main.d9ee62f6.css">
+<script src="/main.d9ee62f6.js"></script></head>
 
-</head>
 <body>
+	<!-- Header bar -->
 	<header>
 		<div class="container">
-			<div class="logo"></div>
-			<div class="form">
+			<!-- Header logo -->
+			<div class="header--logo">
 				<svg>
-					<use href="/Logo.ae671f7c.svg"></use>
+					<use href="/Logo.ae671f7c.svg#Logo"></use>
 				</svg>
-				<input type="text">
+			</div>
+			<!-- Header search form -->
+			<div class="header--search-form">
+				<svg>
+					<use href="/SearchGlass.2ebf5b5f.svg#SearchGlass"></use>
+				</svg>
+				<input type="text" id="recipeSearch" placeholder="Search your recipes here…">
 			</div>
 		</div>
 	</header>
 
+	<!-- Main Home Container -->
+	<div class="container">
+
+		<!-- Recipe container -->
+		<div class="recipe--container">
+
+			<!-- Recipe title bar -->
+			<div class="recipe--title-bar">
+				<h1>Recipes</h1>
+				<select id="sortOrder">
+					<option value="" selected="">Choose recipe order</option>
+					<option value="type">Meal Type</option>
+					<option value="alpha">Alphabetical</option>
+					<option value="date">Date Created</option>
+				</select>
+				<a href="#" class="button button--green" id="addRecipe">Add Recipe</a>
+			</div>
+
+			<!-- Recipe entry -->
+			<div class="recipe--entry">
+				<!-- Recipe meta -->
+				<div class="recipe--meta">
+					<div class="recipe--rating">
+						Rating: <span>*****</span>
+					</div>
+					<div class="recipe--time">
+						Cooking Time: <span>45min</span>
+					</div>
+					<div class="recipe--created">
+						Created: <span>6 days ago</span>
+					</div>
+					<div class="recipe--type">
+						<svg>
+							<use href="/FishDish.98c72d61.svg#FishDish"></use>
+						</svg>
+					</div>
+				</div>
+				<div class="recipe--title">
+					<h3>Jacket potatoes with tuna and spring onions</h3>
+				</div>
+				<div class="recipe--list-button">
+					<a href="#">
+						<img src="/PlusSymbol.62522267.svg" alt="">
+						Add to basket
+					</a>
+				</div>
+			</div>
+
+			<!-- Recipe entry -->
+			<div class="recipe--entry">
+				<!-- Recipe meta -->
+				<div class="recipe--meta">
+					<div class="recipe--rating">
+						Rating: <span>*****</span>
+					</div>
+					<div class="recipe--time">
+						Cooking Time: <span>45min</span>
+					</div>
+					<div class="recipe--created">
+						Created: <span>6 days ago</span>
+					</div>
+					<div class="recipe--type">
+						<img src="/FishDish.98c72d61.svg" alt="">
+					</div>
+				</div>
+				<div class="recipe--title">
+					<h3>Jacket potatoes with tuna and spring onions</h3>
+				</div>
+				<div class="recipe--list-button">
+					<a href="#">
+						<img src="/PlusSymbol.62522267.svg" alt="">
+						Add to basket
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Shopping list -->
+		<div class="shopping--container">
+			<div class="shopping-title">
+				<h2>Shopping List</h2>
+				<a href="#" class="button button--red" id="clearShopping">Clear</a>
+			</div>
+			<ul class="shopping--list">
+				<li>Potatoes</li>
+				<li>Tin of tuna</li>
+				<li>Spring onions</li>
+			</ul>
+			<a href="" class="button button--purple" id="printShopping">Print shopping list</a>
+		</div>
+
+	</div><!-- End of container -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="container">
+			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> | <a href="/recipe.html">Recipe</a></p>
+		</div>
+	</footer>
+
+
 	<script src="/app.77c12427.js"></script>
 </body>
+
 </html>

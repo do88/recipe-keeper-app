@@ -1,4 +1,8 @@
-@import "normalize";
+@import "vendors/normalize";
 @import "abstracts";
-@import "components";
+
+@import "components/typography";
+@import "components/home-shopping";
+@import "components/home-recipes";
+
 @import "layout";

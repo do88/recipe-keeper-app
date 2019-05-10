@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"node_modules/": true,
+		".cache": true,
+		".babelrc": true,
+		".eslintrc": true,
+		"package-lock.json": true,
+		".git": true,
+	}
+}
