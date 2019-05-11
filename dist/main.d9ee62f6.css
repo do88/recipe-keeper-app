@@ -399,7 +399,6 @@ h1 {
 
 .recipe--container {
   width: 65.52%;
-  border: 1px solid red;
 }
 .recipe--container .recipe--title-bar {
   display: flex;
@@ -463,6 +462,7 @@ svg {
 
 .container {
   max-width: 1000px;
+  width: 95%;
   margin: 0 auto;
   padding: 20px 0;
   display: flex;
