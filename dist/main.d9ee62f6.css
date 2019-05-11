@@ -376,6 +376,10 @@ h1 {
   margin: 0 0 20px 0;
 }
 
+.error {
+  width: 100%;
+}
+
 .shopping--container {
   width: 31.03%;
 }
@@ -388,6 +392,9 @@ h1 {
   margin: 0;
   align-self: center;
 }
+.shopping--container .ingredients-title h2 {
+  margin: 0;
+}
 .shopping--container ul {
   list-style: none;
   padding: 0;
@@ -395,6 +402,18 @@ h1 {
 .shopping--container ul li {
   border-bottom: 1px dotted #808080;
   padding: 10px 0;
+}
+
+.shopping--container form {
+  display: flex;
+  align-items: flex-start;
+}
+.shopping--container form textarea {
+  flex-grow: 1;
+  height: 30px;
+}
+.shopping--container #deleteIngredients {
+  float: right;
 }
 
 .recipe--container {
@@ -450,6 +469,69 @@ h1 {
   display: flex;
 }
 
+.recipe--form-labels {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe--form-labels .recipe--form-labels-title {
+  flex-grow: 1;
+}
+.recipe--form-labels .recipe--form-title {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.recipe--form-labels .recipe--form-title h1 {
+  font-size: 32px;
+  margin: 0;
+}
+.recipe--form-labels .recipe--form-title input {
+  width: 100%;
+}
+
+.recipe--form-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe--form-details div {
+  margin-right: 20px;
+}
+
+body {
+  counter-reset: section;
+  /* Set a counter named 'section', and its initial value is 0. */
+}
+
+.recipe--form-instructions ol {
+  padding: 0;
+}
+.recipe--form-instructions ol li {
+  border-bottom: 1px dotted #808080;
+  padding: 10px 0;
+  display: flex;
+}
+.recipe--form-instructions ol li::before {
+  counter-increment: section;
+  /* Increment the value of section counter by 1 */
+  content: counter(section);
+  /* Display the value of section counter */
+  padding-right: 10px;
+  font-weight: bold;
+}
+.recipe--form-instructions ol li a {
+  display: flex;
+  align-items: center;
+}
+.recipe--form-instructions form {
+  display: flex;
+  align-items: flex-start;
+}
+.recipe--form-instructions form textarea {
+  flex-grow: 1;
+}
+.recipe--form-instructions #deleteRecipe {
+  float: right;
+}
+
 html,
 body {
   height: 100%;
@@ -476,6 +558,7 @@ header {
 }
 header .header--logo {
   align-self: center;
+  flex-grow: 1;
 }
 header .header--logo svg {
   width: 311px;
@@ -489,6 +572,10 @@ header .header--search-form svg {
   width: 28px;
   height: 28px;
   margin-right: 20px;
+}
+header .header--recipe-details,
+header .header--recipe-save {
+  align-self: center;
 }
 
 footer .container {

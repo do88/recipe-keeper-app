@@ -33,9 +33,9 @@ svg {
 header {
 	width: 100%;
 	background: $color-grey__light;
-
 	.header--logo {
 		align-self: center;
+		flex-grow: 1;
 		svg {
 			width: 311px;
 			height: 43px;
@@ -49,6 +49,10 @@ header {
 			height: 28px;
 			margin-right: 20px;
 		}
+	}
+	.header--recipe-details,
+	.header--recipe-save {
+		align-self: center;
 	}
 }
 

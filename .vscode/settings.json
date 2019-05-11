@@ -6,5 +6,6 @@
 		".eslintrc": true,
 		"package-lock.json": true,
 		".git": true,
+		"dist": true,
 	}
 }
