@@ -1,0 +1,65 @@
+//  ===========================================
+//  Recipe form
+//  ===========================================
+
+.recipe--form-labels {
+	display: flex;
+	flex-wrap: wrap;
+	.recipe--form-labels-title {
+		flex-grow: 1;
+	}
+	.recipe--form-title {
+		width: 100%;
+		margin-bottom: 20px;
+		h1 {
+			font-size: 32px;
+			margin: 0;
+		}
+		input {
+			width: 100%;
+		}
+	}
+}
+
+.recipe--form-details {
+	display: flex;
+	flex-wrap: wrap;
+	div {
+		margin-right: 20px;
+	}
+}
+
+body {
+	counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
+}
+
+.recipe--form-instructions {
+	ol {
+		padding: 0;
+		li {
+			border-bottom: 1px dotted $color-grey__medium;
+			padding: 10px 0;
+			display: flex;
+			&::before {
+				counter-increment: section; /* Increment the value of section counter by 1 */
+				content: counter(section); /* Display the value of section counter */
+				padding-right: 10px;
+				font-weight: bold;
+			}
+			a {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+	form {
+		display: flex;
+		align-items: flex-start;
+		textarea {
+			flex-grow: 1;
+		}
+	}
+	#deleteRecipe {
+		float: right;
+	}
+}

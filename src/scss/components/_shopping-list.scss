@@ -1,5 +1,5 @@
 //  ===========================================
-//  Home Shopping List
+//  Shopping List
 //  ===========================================
 
 .shopping--container {
@@ -13,6 +13,9 @@
 			align-self: center;
 		}
 	}
+	.ingredients-title h2 {
+		margin: 0;
+	}
 	ul {
 		list-style: none;
 		padding: 0;
@@ -20,5 +23,19 @@
 			border-bottom: 1px dotted $color-grey__medium;
 			padding: 10px 0;
 		}
+	}
+}
+
+.shopping--container {
+	form {
+		display: flex;
+		align-items: flex-start;
+		textarea {
+			flex-grow: 1;
+			height: 30px;
+		}
+	}
+	#deleteIngredients {
+		float: right;
 	}
 }
