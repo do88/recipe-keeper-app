@@ -6,6 +6,7 @@ html,
 body {
 	height: 100%;
 	margin: 0;
+	color: $color-grey__dark;
 }
 
 svg {
@@ -48,11 +49,33 @@ header {
 			width: 28px;
 			height: 28px;
 			margin-right: 20px;
+			align-self: center;
+		}
+		input {
+			padding: 10px;
+			@include round-corner;
+			outline: 0;
+			border: 1px solid $color-grey__medium;
+			width: 250px;
 		}
 	}
-	.header--recipe-details,
 	.header--recipe-save {
-		align-self: center;
+		align-self: flex-start;
+		margin-left: 15px;
+	}
+	.header--recipe-details {
+		align-self: flex-start;
+		.header--recipe-created {
+			font-weight: 700;
+			font-size: 18px;
+			color: $color-purple;
+			margin-top: 3px;
+		}
+		.header--recipe-updated {
+			font-size: 14px;
+			color: $color-red;
+			margin-top: 3px;
+		}
 	}
 }
 

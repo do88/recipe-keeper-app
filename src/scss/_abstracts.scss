@@ -42,3 +42,23 @@ $color-grey__dark: #404040;
 //  ===========================================
 //  Mixins
 //  ===========================================
+
+@mixin round-corner {
+	border-radius: 3px;
+}
+
+@mixin button-colour($buttonColor) {
+	background-color: $buttonColor;
+	&:hover {
+		background-color: darken($buttonColor, 33%);
+	}
+}
+
+@mixin input-style {
+	padding: 12px;
+	@include round-corner;
+	border: 1px solid $color-grey__medium;
+	background: $color-grey__light;
+}
+
+

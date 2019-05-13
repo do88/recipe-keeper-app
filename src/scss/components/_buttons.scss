@@ -1,0 +1,107 @@
+//  ===========================================
+//  Buttons
+//  ===========================================
+
+.button {
+	@include round-corner;
+	display: inline-flex;
+	background-color: $color-grey__medium;
+	padding: 10px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	transition: all 0.25s ease-in;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	svg {
+		width: 12px;
+		height: 12px;
+		fill: #fff;
+	}
+	&:hover {
+		background-color: $color-grey__dark;
+	}
+	&__green {
+		@include button-colour($color-green);
+	}
+	&__purple {
+		@include button-colour($color-purple);
+	}
+	&__red {
+		@include button-colour($color-red);
+	}
+	&__delete {
+		background-color: $color-grey__medium;;
+		&:hover {
+			background-color: $color-red;
+		}
+	}
+}
+
+.recipe--list-button a {
+	display: flex;
+	font-weight: 700;
+	text-decoration: none;
+	color: $color-green;
+	transition: all 0.25s ease-in;
+	svg {
+		width: 13px;
+		height: 13px;
+		align-self: center;
+		margin-right: 4px;
+		fill: $color-green;
+		transition: all 0.25s ease-in;
+	}
+	&:hover {
+		color: darken($color-green, 33%);
+		svg {
+			fill: darken($color-green, 33%);
+		}
+	}
+}
+
+.inline-button {
+	display: inline-flex;
+	align-items: center;
+	color: $color-grey__medium;
+	text-decoration: none;
+	transition: all 0.25s ease-in;
+	font-weight: 700;
+	height: 20px;
+	svg {
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+		fill: $color-grey__medium;
+		transition: all 0.25s ease-in;
+		align-self: center;
+	}
+	&:hover {
+		color: darken($color-grey__medium, 33%);
+		svg {
+			fill: darken($color-grey__medium, 33%);
+		}
+	}
+	&__green {
+		color: $color-green;
+		svg {
+			fill: $color-green;
+		}
+		&:hover {
+			color: darken($color-green, 33%);
+			svg {
+				fill: darken($color-green, 33%);
+			}
+		}
+	}
+	&__delete {
+		color: $color-grey__medium;
+		&:hover {
+			color: darken($color-red, 0%);
+			svg {
+				fill: darken($color-red, 0%);
+			}
+		}
+	}
+}

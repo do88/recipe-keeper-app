@@ -5,6 +5,7 @@
     "sass": "^1.20.1"
   },
   "dependencies": {
+    "autoprefixer": "^9.5.1",
     "jquery": "^3.4.1"
   }
 }

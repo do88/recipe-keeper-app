@@ -1,10 +1,15 @@
 @import "vendors/normalize";
+
 @import "abstracts";
+
+@import "layout";
 
 @import "components/typography";
 @import "components/error";
 @import "components/shopping-list";
 @import "components/home-recipes";
+@import "components/ratings";
+@import "components/home-recipes--entries";
 @import "components/recipe-form";
+@import "components/buttons";
 
-@import "layout";

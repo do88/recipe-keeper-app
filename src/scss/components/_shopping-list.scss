@@ -7,32 +7,39 @@
 	.shopping-title {
 		display: flex;
 		justify-content: space-between;
-		h2,
-		a {
+		h2 {
+			color: $color-red;
 			margin: 0;
+		}
+		a {
 			align-self: center;
 		}
-	}
-	.ingredients-title h2 {
-		margin: 0;
 	}
 	ul {
 		list-style: none;
 		padding: 0;
+		margin-bottom: 10px;
 		li {
 			border-bottom: 1px dotted $color-grey__medium;
 			padding: 10px 0;
+			font-weight: 700;
+			color: $color-purple;
+			a {
+				float: right;
+			}
+		}
+		+ a {
+			margin-bottom: 10px;
 		}
 	}
-}
-
-.shopping--container {
+	// Style for the recipe page
 	form {
 		display: flex;
 		align-items: flex-start;
-		textarea {
+		input {
 			flex-grow: 1;
-			height: 30px;
+			@include input-style;
+			margin: 0 15px 15px 0;
 		}
 	}
 	#deleteIngredients {

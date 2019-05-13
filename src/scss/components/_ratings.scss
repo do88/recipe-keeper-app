@@ -1,0 +1,36 @@
+//  ===========================================
+//  Recipe rating system
+//  ===========================================
+
+.recipe--rating {
+	display: flex;
+	span {
+		align-self: center;
+		margin-right: 5px;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		li {
+			display: inline-flex;
+			svg {
+				align-self: center;
+			}
+		}
+	}
+}
+
+.recipe--form-rating {
+	@extend .recipe--rating;
+	flex-direction: column;
+	span {
+		align-self: flex-start;
+	}
+	svg {
+		width: 25px;
+		height: 25px;
+		margin-top: 15px;
+	}
+}

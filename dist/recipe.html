@@ -17,22 +17,21 @@
 		<div class="container">
 			<!-- Header logo -->
 			<div class="header--logo">
-				<img src="/Logo.ae671f7c.svg#Logo" alt="">
-				<!-- <svg>
-					<use href="/src/img/Logo.svg#Logo"></use>
-				</svg> -->
+				<svg>
+					<use href="/Logo.ae671f7c.svg#Logo"></use>
+				</svg>
 			</div>
 			<!-- Header search form -->
 			<div class="header--recipe-details">
 				<div class="header--recipe-created">
-					Created 12th April 2019
+					Created <span>12th April 2019</span>
 				</div>
 				<div class="header--recipe-updated">
 					Updated...
 				</div>
 			</div>
 			<div class="header--recipe-save">
-				<a href="#" class="button button--green">Save and exit </a>
+				<a href="#" class="button button__green">Save and exit </a>
 			</div>
 		</div>
 	</header>
@@ -54,8 +53,8 @@
 				<!-- Recipe title -->
 				<div class="recipe--form-labels">
 					<div class="recipe--form-labels-title">Title</div>
-					<div class="recipe--form-labels-edit">Edit</div>
-					<div class="recipe--form-labels-save">Save</div>
+					<div class="recipe--form-labels-edit"><a href="">Edit</a></div>
+					<div class="recipe--form-labels-save"><a href="">Save</a></div>
 					<div class="recipe--form-title">
 						<h1>Jacket potatoes with tuna and spring onions</h1>
 						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here...">
@@ -65,8 +64,34 @@
 				<!-- Recipe form details -->
 				<div class="recipe--form-details">
 					<div class="recipe--form-rating">
-						Set rating:<br>
-						<span>*****</span>
+						<span>Set rating:<br></span>
+						<ul id="ratingsRecipe">
+							<li>
+								<svg>
+									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
+								</svg>
+							</li>
+						</ul>
 					</div>
 					<div class="recipe--form-time">
 						Cooking time:<br>
@@ -79,43 +104,93 @@
 						<img src="/MeatDish.f8e1b9af.svg" alt="">
 					</div>
 				</div>
+
 				<!-- Recipe instructions -->
 				<div class="recipe--form-instructions">
+					<!-- Recipe steps -->
 					<ol>
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="delete"><img src="/Cross.8277dbf0.svg" alt="">Delete</a>
-						</li>
-						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="delete"><img src="/Cross.8277dbf0.svg" alt="">Delete</a>
+							<a href="#" class="inline-button inline-button__delete">
+								<svg>
+									<use href="/Cross.8277dbf0.svg#Cross"></use>
+								</svg>Delete
+							</a>
 						</li>
 					</ol>
-					<a href="#" id="addInstruction"><img src="/PlusSymbol.62522267.svg" alt="">Add</a>
+
+					<!-- Add a step button -->
+					<a href="#" id="addInstruction" class="inline-button inline-button__green">
+						<svg>
+							<use href="/PlusSymbol.62522267.svg#PlusSymbol"></use>
+						</svg>
+						Add</a>
+
+					<!-- Form to add a step -->
 					<form>
 						<textarea name="" id="addInstruction" cols="30" rows="10"></textarea>
-						<button><img src="/PlusSymbol.62522267.svg" alt=""></button>
+						<button class="button button__green">
+							<svg>
+								<use href="/PlusSymbol.62522267.svg#PlusSymbol"></use>
+							</svg>
+						</button>
 					</form>
-					<a href="#" class="button button--grey" id="deleteRecipe">Delete Recipe</a>
+					<a href="#" class="button button__delete" id="deleteRecipe">Delete Recipe</a>
 				</div>
 
-			</div>
-		</div>
+			</div><!-- End of recipe form -->
+		</div><!-- End of recipe container -->
 
 		<!-- Shopping list -->
 		<div class="shopping--container">
-			<div class="ingredients-title">
+			<!-- List title -->
+			<div class="shopping-title">
 				<h2>Ingredients</h2>
 			</div>
-			<ul class="ingredients--list">
-				<li>Potatoes <a href="#"><img src="/Cross.8277dbf0.svg" alt="">Delete</a></li>
-				<li>Tin of tuna <a href="#"><img src="/Cross.8277dbf0.svg" alt="">Delete</a></li>
-				<li>Spring onions <a href="#"><img src="/Cross.8277dbf0.svg" alt="">Delete</a></li>
+
+			<!-- Shopping list -->
+			<ul>
+				<li>Potatoes
+					<a href="#" class="inline-button inline-button__delete">
+						<svg>
+							<use href="/Cross.8277dbf0.svg#Cross"></use>
+						</svg>Delete
+					</a>
+				</li>
+				<li>Potatoes
+					<a href="#" class="inline-button inline-button__delete">
+						<svg>
+							<use href="/Cross.8277dbf0.svg#Cross"></use>
+						</svg>Delete
+					</a>
+				</li>
+				<li>Potatoes
+					<a href="#" class="inline-button inline-button__delete">
+						<svg>
+							<use href="/Cross.8277dbf0.svg#Cross"></use>
+						</svg>Delete
+					</a>
+				</li>
 			</ul>
-			<a href="#" id="addIngredient"><img src="/PlusSymbol.62522267.svg" alt="">Add</a>
+
+			<!-- Add item to list -->
+			<a href="#" id="addIngredient" class="inline-button inline-button__green">
+				<svg>
+					<use href="/PlusSymbol.62522267.svg#PlusSymbol"></use>
+				</svg>
+				Add</a>
+
+			<!-- Form for new items -->
 			<form>
-				<textarea name="" id="addIngredient" cols="30" rows="10"></textarea>
-				<button><img src="/PlusSymbol.62522267.svg" alt=""></button>
+				<input type="text" id="addIngredient">
+				<button class="button button__green">
+					<svg>
+						<use href="/PlusSymbol.62522267.svg#PlusSymbol"></use>
+					</svg>
+				</button>
 			</form>
-			<a href="#" class="button button--grey" id="deleteIngredients">Delete All Ingredients</a>
+
+			<!-- Delete all items in list -->
+			<a href="#" class="button button__delete" id="deleteIngredients">Delete All Ingredients</a>
 		</div>
 
 	</div><!-- End of container -->
@@ -126,7 +201,6 @@
 			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/">LinkedIn</a> --- Icons made by <a href="https://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> | <a href="/">Home</a></p>
 		</div>
 	</footer>
-
 
 	<script src="/app.77c12427.js"></script>
 </body>

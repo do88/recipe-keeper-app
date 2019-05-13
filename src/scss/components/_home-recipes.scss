@@ -9,48 +9,30 @@
 		justify-content: space-between;
 		margin-bottom: 30px;
 		h1 {
-			flex: 3;
+			flex-grow: 1;
 			align-self: center;
 			margin: 0;
 		}
-		select,
 		a {
-			flex: 1;
+			flex-shrink: 1;
 			align-self: center;
+			margin-left: 15px;
 		}
-	}
-}
-
-.recipe--entry {
-	background: $color-grey__light;
-	border-radius: 3px;
-	margin-bottom: 30px;
-	padding: 20px;
-	position: relative;
-	&:last-child {
-		margin: 0;
-	}
-	.recipe--meta {
-		display: flex;
-		justify-content: flex-start;
-		flex-wrap: wrap;
-		div {
-			flex: 1;
-			flex-basis: content;
+		select {
+			// https://www.w3schools.com/howto/howto_custom_select.asp maybe improve this in the future?
+			flex-shrink: 1;
 			align-self: center;
+			width: 240px;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			background: $color-grey__light;
+			background: url(./../img/sort-down.png) 95% no-repeat #eee;
+			border: 1px solid $color-grey__medium;
+			@include round-corner;
+			padding: 8px;
+			&:focus {
+				outline: none;
+			}
 		}
-		svg {
-			width: 28px;
-			height: 28px;
-		}
-	}
-	.recipe--title h3 {
-		margin: 0;
-	}
-	.recipe--list-button {
-		position: absolute;
-		bottom: 12px;
-		right: 12px;
-		display: flex;
 	}
 }

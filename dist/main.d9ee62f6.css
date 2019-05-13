@@ -82,7 +82,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -356,186 +357,10 @@ html {
 }
 
 html,
-body,
-p,
-ul,
-h1,
-h2,
-h3,
-h4,
-h5,
-span,
-.button {
-  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-h1 {
-  font-size: 40px;
-  color: #fe5858;
-  font-weight: 700;
-  margin: 0 0 20px 0;
-}
-
-.error {
-  width: 100%;
-}
-
-.shopping--container {
-  width: 31.03%;
-}
-.shopping--container .shopping-title {
-  display: flex;
-  justify-content: space-between;
-}
-.shopping--container .shopping-title h2,
-.shopping--container .shopping-title a {
-  margin: 0;
-  align-self: center;
-}
-.shopping--container .ingredients-title h2 {
-  margin: 0;
-}
-.shopping--container ul {
-  list-style: none;
-  padding: 0;
-}
-.shopping--container ul li {
-  border-bottom: 1px dotted #808080;
-  padding: 10px 0;
-}
-
-.shopping--container form {
-  display: flex;
-  align-items: flex-start;
-}
-.shopping--container form textarea {
-  flex-grow: 1;
-  height: 30px;
-}
-.shopping--container #deleteIngredients {
-  float: right;
-}
-
-.recipe--container {
-  width: 65.52%;
-}
-.recipe--container .recipe--title-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-.recipe--container .recipe--title-bar h1 {
-  flex: 3;
-  align-self: center;
-  margin: 0;
-}
-.recipe--container .recipe--title-bar select,
-.recipe--container .recipe--title-bar a {
-  flex: 1;
-  align-self: center;
-}
-
-.recipe--entry {
-  background: #f7f7f7;
-  border-radius: 3px;
-  margin-bottom: 30px;
-  padding: 20px;
-  position: relative;
-}
-.recipe--entry:last-child {
-  margin: 0;
-}
-.recipe--entry .recipe--meta {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.recipe--entry .recipe--meta div {
-  flex: 1;
-  flex-basis: content;
-  align-self: center;
-}
-.recipe--entry .recipe--meta svg {
-  width: 28px;
-  height: 28px;
-}
-.recipe--entry .recipe--title h3 {
-  margin: 0;
-}
-.recipe--entry .recipe--list-button {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  display: flex;
-}
-
-.recipe--form-labels {
-  display: flex;
-  flex-wrap: wrap;
-}
-.recipe--form-labels .recipe--form-labels-title {
-  flex-grow: 1;
-}
-.recipe--form-labels .recipe--form-title {
-  width: 100%;
-  margin-bottom: 20px;
-}
-.recipe--form-labels .recipe--form-title h1 {
-  font-size: 32px;
-  margin: 0;
-}
-.recipe--form-labels .recipe--form-title input {
-  width: 100%;
-}
-
-.recipe--form-details {
-  display: flex;
-  flex-wrap: wrap;
-}
-.recipe--form-details div {
-  margin-right: 20px;
-}
-
-body {
-  counter-reset: section;
-  /* Set a counter named 'section', and its initial value is 0. */
-}
-
-.recipe--form-instructions ol {
-  padding: 0;
-}
-.recipe--form-instructions ol li {
-  border-bottom: 1px dotted #808080;
-  padding: 10px 0;
-  display: flex;
-}
-.recipe--form-instructions ol li::before {
-  counter-increment: section;
-  /* Increment the value of section counter by 1 */
-  content: counter(section);
-  /* Display the value of section counter */
-  padding-right: 10px;
-  font-weight: bold;
-}
-.recipe--form-instructions ol li a {
-  display: flex;
-  align-items: center;
-}
-.recipe--form-instructions form {
-  display: flex;
-  align-items: flex-start;
-}
-.recipe--form-instructions form textarea {
-  flex-grow: 1;
-}
-.recipe--form-instructions #deleteRecipe {
-  float: right;
-}
-
-html,
 body {
   height: 100%;
   margin: 0;
+  color: #404040;
 }
 
 svg {
@@ -572,10 +397,32 @@ header .header--search-form svg {
   width: 28px;
   height: 28px;
   margin-right: 20px;
-}
-header .header--recipe-details,
-header .header--recipe-save {
   align-self: center;
+}
+header .header--search-form input {
+  padding: 10px;
+  border-radius: 3px;
+  outline: 0;
+  border: 1px solid #808080;
+  width: 250px;
+}
+header .header--recipe-save {
+  align-self: flex-start;
+  margin-left: 15px;
+}
+header .header--recipe-details {
+  align-self: flex-start;
+}
+header .header--recipe-details .header--recipe-created {
+  font-weight: 700;
+  font-size: 18px;
+  color: #635d9d;
+  margin-top: 3px;
+}
+header .header--recipe-details .header--recipe-updated {
+  font-size: 14px;
+  color: #fe5858;
+  margin-top: 3px;
 }
 
 footer .container {
@@ -583,6 +430,417 @@ footer .container {
 }
 footer .container p {
   margin: 0 0 20px;
+}
+
+html,
+body,
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+.button {
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  color: #fe5858;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.error {
+  width: 100%;
+}
+.error--message {
+  border-radius: 3px;
+  margin: 0;
+  background: #fe5858;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+.error--message p {
+  margin: 0;
+}
+
+.shopping--container {
+  width: 31.03%;
+}
+.shopping--container .shopping-title {
+  display: flex;
+  justify-content: space-between;
+}
+.shopping--container .shopping-title h2 {
+  color: #fe5858;
+  margin: 0;
+}
+.shopping--container .shopping-title a {
+  align-self: center;
+}
+.shopping--container ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.shopping--container ul li {
+  border-bottom: 1px dotted #808080;
+  padding: 10px 0;
+  font-weight: 700;
+  color: #635d9d;
+}
+.shopping--container ul li a {
+  float: right;
+}
+.shopping--container ul + a {
+  margin-bottom: 10px;
+}
+.shopping--container form {
+  display: flex;
+  align-items: flex-start;
+}
+.shopping--container form input {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #808080;
+  background: #f7f7f7;
+  margin: 0 15px 15px 0;
+}
+.shopping--container #deleteIngredients {
+  float: right;
+}
+
+.recipe--container {
+  width: 65.52%;
+}
+.recipe--container .recipe--title-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.recipe--container .recipe--title-bar h1 {
+  flex-grow: 1;
+  align-self: center;
+  margin: 0;
+}
+.recipe--container .recipe--title-bar a {
+  flex-shrink: 1;
+  align-self: center;
+  margin-left: 15px;
+}
+.recipe--container .recipe--title-bar select {
+  flex-shrink: 1;
+  align-self: center;
+  width: 240px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #f7f7f7;
+  background: url(/sort-down.c1f37a15.png) 95% no-repeat #eee;
+  border: 1px solid #808080;
+  border-radius: 3px;
+  padding: 8px;
+}
+.recipe--container .recipe--title-bar select:focus {
+  outline: none;
+}
+
+.recipe--rating, .recipe--form-rating {
+  display: flex;
+}
+.recipe--rating span, .recipe--form-rating span {
+  align-self: center;
+  margin-right: 5px;
+}
+.recipe--rating ul, .recipe--form-rating ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.recipe--rating ul li, .recipe--form-rating ul li {
+  display: inline-flex;
+}
+.recipe--rating ul li svg, .recipe--form-rating ul li svg {
+  align-self: center;
+}
+
+.recipe--form-rating {
+  flex-direction: column;
+}
+.recipe--form-rating span {
+  align-self: flex-start;
+}
+.recipe--form-rating svg {
+  width: 25px;
+  height: 25px;
+  margin-top: 15px;
+}
+
+.recipe--entry {
+  background: #f7f7f7;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.25s ease-in;
+}
+.recipe--entry:last-child {
+  margin: 0;
+}
+.recipe--entry .recipe--meta {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.recipe--entry .recipe--meta div {
+  flex-basis: content;
+  align-self: center;
+  margin-right: 12px;
+}
+.recipe--entry .recipe--meta svg {
+  width: 24px;
+  height: 24px;
+}
+.recipe--entry .recipe--meta .recipe--created {
+  flex-grow: 1;
+}
+.recipe--entry .recipe--meta .recipe--time span,
+.recipe--entry .recipe--meta .recipe--created span {
+  font-weight: 700;
+  color: #635d9d;
+}
+.recipe--entry .recipe--title a {
+  text-decoration: none;
+  color: #404040;
+  z-index: 1;
+}
+.recipe--entry .recipe--title a:hover {
+  color: #635d9d;
+}
+.recipe--entry .recipe--title a h3 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.recipe--entry .recipe--list-button {
+  margin-top: 12px;
+}
+
+.recipe--form-labels {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe--form-labels-title {
+  flex-grow: 1;
+  color: #635d9d;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.recipe--form-labels-edit a {
+  font-weight: 700;
+  margin-right: 10px;
+  color: #808080;
+  text-decoration: none;
+}
+.recipe--form-labels-save a {
+  color: #63cab9;
+  font-weight: 700;
+  text-decoration: none;
+}
+.recipe--form-labels .recipe--form-title {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.recipe--form-labels .recipe--form-title h1 {
+  font-size: 32px;
+  margin: 0;
+}
+.recipe--form-labels .recipe--form-title input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #808080;
+  background: #f7f7f7;
+}
+
+.recipe--form-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe--form-details div {
+  margin-right: 20px;
+}
+.recipe--form-details .recipe--form-time input {
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #808080;
+  background: #f7f7f7;
+  width: 70px;
+  margin-right: 5px;
+}
+
+body {
+  counter-reset: section;
+  /* Set a counter named 'section', and its initial value is 0. */
+}
+
+.recipe--form-instructions {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.recipe--form-instructions ol {
+  padding: 0;
+}
+.recipe--form-instructions ol li {
+  border-bottom: 1px dotted #808080;
+  padding: 10px 0;
+  display: flex;
+}
+.recipe--form-instructions ol li::before {
+  counter-increment: section;
+  /* Increment the value of section counter by 1 */
+  content: counter(section);
+  /* Display the value of section counter */
+  padding-right: 10px;
+  font-weight: bold;
+}
+.recipe--form-instructions form {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0 15px;
+}
+.recipe--form-instructions form textarea {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #808080;
+  background: #f7f7f7;
+  margin-right: 15px;
+}
+.recipe--form-instructions #deleteRecipe {
+  float: right;
+}
+
+.button {
+  border-radius: 3px;
+  display: inline-flex;
+  background-color: #808080;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.25s ease-in;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+.button svg {
+  width: 12px;
+  height: 12px;
+  fill: #fff;
+}
+.button:hover {
+  background-color: #404040;
+}
+.button__green {
+  background-color: #63cab9;
+}
+.button__green:hover {
+  background-color: #226358;
+}
+.button__purple {
+  background-color: #635d9d;
+}
+.button__purple:hover {
+  background-color: #201e33;
+}
+.button__red {
+  background-color: #fe5858;
+}
+.button__red:hover {
+  background-color: #ad0101;
+}
+.button__delete {
+  background-color: #808080;
+}
+.button__delete:hover {
+  background-color: #fe5858;
+}
+
+.recipe--list-button a {
+  display: flex;
+  font-weight: 700;
+  text-decoration: none;
+  color: #63cab9;
+  transition: all 0.25s ease-in;
+}
+.recipe--list-button a svg {
+  width: 13px;
+  height: 13px;
+  align-self: center;
+  margin-right: 4px;
+  fill: #63cab9;
+  transition: all 0.25s ease-in;
+}
+.recipe--list-button a:hover {
+  color: #226358;
+}
+.recipe--list-button a:hover svg {
+  fill: #226358;
+}
+
+.inline-button {
+  display: inline-flex;
+  align-items: center;
+  color: #808080;
+  text-decoration: none;
+  transition: all 0.25s ease-in;
+  font-weight: 700;
+  height: 20px;
+}
+.inline-button svg {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  fill: #808080;
+  transition: all 0.25s ease-in;
+  align-self: center;
+}
+.inline-button:hover {
+  color: #2c2c2c;
+}
+.inline-button:hover svg {
+  fill: #2c2c2c;
+}
+.inline-button__green {
+  color: #63cab9;
+}
+.inline-button__green svg {
+  fill: #63cab9;
+}
+.inline-button__green:hover {
+  color: #226358;
+}
+.inline-button__green:hover svg {
+  fill: #226358;
+}
+.inline-button__delete {
+  color: #808080;
+}
+.inline-button__delete:hover {
+  color: #fe5858;
+}
+.inline-button__delete:hover svg {
+  fill: #fe5858;
 }
 
 /*# sourceMappingURL=/main.d9ee62f6.css.map */

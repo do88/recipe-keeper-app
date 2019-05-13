@@ -1,0 +1,56 @@
+//  ===========================================
+//  Home Recipe Entry
+//  ===========================================
+
+.recipe--entry {
+	background: $color-grey__light;
+	border-radius: 3px;
+	margin-bottom: 30px;
+	padding: 20px;
+	position: relative;
+	transition: all 0.25s ease-in;
+	&:last-child {
+		margin: 0;
+	}
+	.recipe--meta {
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		div {
+			flex-basis: content;
+			align-self: center;
+			margin-right: 12px;
+		}
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+		.recipe--created {
+			flex-grow: 1;
+		}
+		.recipe--time,
+		.recipe--created {
+			span {
+				font-weight: 700;
+				color: $color-purple;
+			}
+		}
+	}
+	.recipe--title a {
+		text-decoration: none;
+		color: $color-grey__dark;
+		z-index: 1;
+		&:hover {
+			color: $color-purple;
+		}
+		h3 {
+			margin: 0;
+			font-size: 34px;
+			font-weight: 300;
+			margin-top: 10px;
+		}
+	}
+	.recipe--list-button {
+		margin-top: 12px;
+	}
+}

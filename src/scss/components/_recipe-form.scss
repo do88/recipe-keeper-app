@@ -2,11 +2,26 @@
 //  Recipe form
 //  ===========================================
 
+// title and labels
 .recipe--form-labels {
 	display: flex;
 	flex-wrap: wrap;
-	.recipe--form-labels-title {
+	&-title {
 		flex-grow: 1;
+		color: $color-purple;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+	&-edit a {
+		font-weight: 700;
+		margin-right: 10px;
+		color: $color-grey__medium;
+		text-decoration: none;
+	}
+	&-save a {
+		color: $color-green;
+		font-weight: 700;
+		text-decoration: none;
 	}
 	.recipe--form-title {
 		width: 100%;
@@ -17,23 +32,38 @@
 		}
 		input {
 			width: 100%;
+			@include input-style;
 		}
 	}
 }
 
+// recipe form details
 .recipe--form-details {
 	display: flex;
 	flex-wrap: wrap;
 	div {
 		margin-right: 20px;
 	}
+	// Recipe form time and form
+	.recipe--form-time {
+		input {
+			margin-top: 5px;
+			@include input-style;
+			width: 70px;
+			margin-right: 5px;
+		}
+	}
+	// Recipe form SVG checkbox maybe?
 }
 
 body {
 	counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
 }
 
+// styling for the instructions
 .recipe--form-instructions {
+	font-size: 16px;
+	line-height: 1.5;
 	ol {
 		padding: 0;
 		li {
@@ -46,17 +76,16 @@ body {
 				padding-right: 10px;
 				font-weight: bold;
 			}
-			a {
-				display: flex;
-				align-items: center;
-			}
 		}
 	}
 	form {
 		display: flex;
 		align-items: flex-start;
+		margin: 10px 0 15px;
 		textarea {
 			flex-grow: 1;
+			@include input-style;
+			margin-right: 15px;
 		}
 	}
 	#deleteRecipe {
