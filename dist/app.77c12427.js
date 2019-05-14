@@ -10929,26 +10929,85 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":"../../../.config/yarn/global/node_modules/process/browser.js"}],"src/js/app.js":[function(require,module,exports) {
+},{"process":"../../../.config/yarn/global/node_modules/process/browser.js"}],"src/js/Views/base.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.jqueryStarRatingWatchers = jqueryStarRatingWatchers;
+exports.elements = void 0;
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import jqueryStarRatingWatchers from './base';
-
-/* eslint-disable import/prefer-default-export */
-
 /* eslint-disable func-names */
 
-/* eslint-disable no-mixed-spaces-and-tabs */
-(0, _jquery.default)(document).ready(function () {
+/* eslint-disable import/prefer-default-export */
+//  ===========================================
+//  HTML element for selections
+//  ===========================================
+var elements = {
+  // Home existing HTML
+  recipeSearch: (0, _jquery.default)('#recipeSearch'),
+  // Search box on home
+  recipeContainer: (0, _jquery.default)('.recipe--container'),
+  // Container for the recipe entries
+  sortOrder: (0, _jquery.default)('#sortOrder'),
+  // Sort order dropdown
+  addRecipe: (0, _jquery.default)('#addRecipe'),
+  // Add new recipe button
+  clearShopping: (0, _jquery.default)('#clearShopping'),
+  // Clear all the shopping basket button
+  // Home generated HTML
+  recipeAddToBasketButton: (0, _jquery.default)('.recipe--list-button'),
+  // add ingredients to basket button !needs (ID)!!!
+  recipeTitle: (0, _jquery.default)('.recipe--title'),
+  // recipe title
+  // Recipe existing HTML
+  saveAndExit: (0, _jquery.default)('#saveAndExit'),
+  // save and exit back to index button
+  deleteIngredients: (0, _jquery.default)('#deleteIngredients'),
+  // delete all added ingredients
+  deleteRecipe: (0, _jquery.default)('#deleteRecipe'),
+  // delete the recipe itself
+  saveTitle: (0, _jquery.default)('#saveTitle'),
+  // save the title of the recipe
+  editTitle: (0, _jquery.default)('#editTitle'),
+  // edit the title of the recipe
+  singleRecipeTitle: (0, _jquery.default)('#recipeTitle'),
+  // input for the recipe title
+  ratingsRecipe: (0, _jquery.default)('#ratingsRecipe'),
+  // the rating UL of stars
+  cookingTime: (0, _jquery.default)('#cookingTime'),
+  // cooking time of the recipe
+  mealType: (0, _jquery.default)('#mealType'),
+  // form for the meal type of the recipe
+  addInstruction: (0, _jquery.default)('#addInstruction'),
+  // add extra instruction step to recipe button
+  addInstructionForm: (0, _jquery.default)('#addInstructionForm'),
+  // form to add instruction
+  addIngredient: (0, _jquery.default)('#addIngredient'),
+  // button to add ingredient
+  addIngredientForm: (0, _jquery.default)('#addIngredientForm'),
+  // form for the meal type of the recipe
+  // Recipe generated HTML
+  deleteStep: (0, _jquery.default)('.delete_step'),
+  // delete a recipe step
+  deleteIngredient: (0, _jquery.default)('.delete_ingredient') // delete a recipe step
+
+}; //  ===========================================
+//  jQuery rating system
+//  ===========================================
+
+exports.elements = elements;
+
+function jqueryStarRatingWatchers() {
   /* 1. Visualizing things on Hover - See next part for action on click */
   (0, _jquery.default)('#ratingsRecipe li').on('mouseover', function () {
     var onStar = parseInt((0, _jquery.default)(this).data('value'), 10); // The star currently mouse on
-
-    console.log(this); // Now highlight all the stars that's not after the current hovered star
+    // Now highlight all the stars that's not after the current hovered star
 
     (0, _jquery.default)(this).parent().children('li.star').each(function (e) {
       if (e < onStar) {
@@ -10982,8 +11041,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var ratingValue = parseInt((0, _jquery.default)('#ratingsRecipe li.selected').last().data('value'), 10);
     console.log(ratingValue);
   });
+}
+},{"jquery":"node_modules/jquery/dist/jquery.js"}],"src/js/app.js":[function(require,module,exports) {
+"use strict";
+
+var _jquery = _interopRequireDefault(require("jquery"));
+
+var _base = require("./Views/base");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//  ===========================================
+//  Star rating jQuery watcher
+//  ===========================================
+(0, _jquery.default)(document).ready(function () {
+  (0, _base.jqueryStarRatingWatchers)();
 });
-},{"jquery":"node_modules/jquery/dist/jquery.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"jquery":"node_modules/jquery/dist/jquery.js","./Views/base":"src/js/Views/base.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

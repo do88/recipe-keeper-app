@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="header--recipe-save">
-				<a href="#" class="button button__green">Save and exit </a>
+				<a href="#" class="button button__green" id="saveAndExit">Save and exit </a>
 			</div>
 		</div>
 	</header>
@@ -53,8 +53,8 @@
 				<!-- Recipe title -->
 				<div class="recipe--form-labels">
 					<div class="recipe--form-labels-title">Title</div>
-					<div class="recipe--form-labels-edit"><a href="">Edit</a></div>
-					<div class="recipe--form-labels-save"><a href="">Save</a></div>
+					<div class="recipe--form-labels-edit"><a href="" id="editTitle">Edit</a></div>
+					<div class="recipe--form-labels-save"><a href="" id="saveTitle">Save</a></div>
 					<div class="recipe--form-title">
 						<h1>Jacket potatoes with tuna and spring onions</h1>
 						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here...">
@@ -99,7 +99,7 @@
 					</div>
 					<div class="recipe--form-type">
 						Meal type:<br>
-						<form>
+						<form id="mealType">
 							<div>
 								<input type="radio" name=mealType” id="fishDish">
 								<label for="fishDish">
@@ -133,14 +133,14 @@
 					<!-- Recipe steps -->
 					<ol>
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button__delete">
+							<a href="#" class="inline-button inline-button__delete delete_ingredient">
 								<svg>
 									<use href="/src/img/Cross.svg#Cross"></use>
 								</svg>Delete
 							</a>
 						</li>
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button__delete">
+							<a href="#" class="inline-button inline-button__delete delete_ingredient">
 								<svg>
 									<use href="/src/img/Cross.svg#Cross"></use>
 								</svg>Delete
@@ -156,8 +156,8 @@
 						Add</a>
 
 					<!-- Form to add a step -->
-					<form>
-						<textarea name="" id="addInstruction" cols="30" rows="10"></textarea>
+					<form id="addInstructionForm">
+						<textarea name="" cols="30" rows="10"></textarea>
 						<button class="button button__green">
 							<svg>
 								<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
@@ -180,21 +180,21 @@
 			<!-- Shopping list -->
 			<ul>
 				<li>Potatoes
-					<a href="#" class="inline-button inline-button__delete">
+					<a href="#" class="inline-button inline-button__delete delete_step">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
 					</a>
 				</li>
 				<li>Potatoes
-					<a href="#" class="inline-button inline-button__delete">
+					<a href="#" class="inline-button inline-button__delete delete_step">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
 					</a>
 				</li>
 				<li>Potatoes
-					<a href="#" class="inline-button inline-button__delete">
+					<a href="#" class="inline-button inline-button__delete delete_step">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
@@ -210,8 +210,8 @@
 				Add</a>
 
 			<!-- Form for new items -->
-			<form>
-				<input type="text" id="addIngredient">
+			<form id="addIngredientForm">
+				<input type="text">
 				<button class="button button__green">
 					<svg>
 						<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
