@@ -10935,6 +10935,54 @@ return jQuery;
 var _jquery = _interopRequireDefault(require("jquery"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import jqueryStarRatingWatchers from './base';
+
+/* eslint-disable import/prefer-default-export */
+
+/* eslint-disable func-names */
+
+/* eslint-disable no-mixed-spaces-and-tabs */
+(0, _jquery.default)(document).ready(function () {
+  /* 1. Visualizing things on Hover - See next part for action on click */
+  (0, _jquery.default)('#ratingsRecipe li').on('mouseover', function () {
+    var onStar = parseInt((0, _jquery.default)(this).data('value'), 10); // The star currently mouse on
+
+    console.log(this); // Now highlight all the stars that's not after the current hovered star
+
+    (0, _jquery.default)(this).parent().children('li.star').each(function (e) {
+      if (e < onStar) {
+        (0, _jquery.default)(this).addClass('hover');
+      } else {
+        (0, _jquery.default)(this).removeClass('hover');
+      }
+    });
+  }).on('mouseout', function () {
+    (0, _jquery.default)(this).parent().children('li.star').each(function (e) {
+      (0, _jquery.default)(this).removeClass('hover');
+    });
+  });
+  /* 2. Action to perform on click */
+
+  (0, _jquery.default)('#ratingsRecipe li').on('click', function () {
+    var onStar = parseInt((0, _jquery.default)(this).data('value'), 10); // The star currently selected
+
+    var stars = (0, _jquery.default)(this).parent().children('li.star');
+    var i;
+
+    for (i = 0; i < stars.length; i++) {
+      (0, _jquery.default)(stars[i]).removeClass('selected');
+    }
+
+    for (i = 0; i < onStar; i++) {
+      (0, _jquery.default)(stars[i]).addClass('selected');
+    } // JUST RESPONSE (Not needed)
+
+
+    var ratingValue = parseInt((0, _jquery.default)('#ratingsRecipe li.selected').last().data('value'), 10);
+    console.log(ratingValue);
+  });
+});
 },{"jquery":"node_modules/jquery/dist/jquery.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -10963,7 +11011,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55168" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59201" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

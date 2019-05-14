@@ -1,5 +1,5 @@
 //  ===========================================
-//  Recipe rating system
+//  Recipe rating system homepage
 //  ===========================================
 
 .recipe--rating {
@@ -22,6 +22,10 @@
 	}
 }
 
+//  ===========================================
+//  Recipe ratings for single recipes
+//  ===========================================
+
 .recipe--form-rating {
 	@extend .recipe--rating;
 	flex-direction: column;
@@ -32,5 +36,18 @@
 		width: 25px;
 		height: 25px;
 		margin-top: 15px;
+	}
+	ul {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		> li svg {
+			fill: $color-grey__medium;
+		}
+		> li.hover svg {
+			fill: lighten($color-yellow, 20%);
+		}
+		> li.selected svg {
+			fill: $color-yellow;
+		}
 	}
 }

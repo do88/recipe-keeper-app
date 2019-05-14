@@ -13,18 +13,42 @@ svg {
 	overflow: visible;
 }
 
+.site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.site-content {
+	flex: 1;
+}
+
 //  ===========================================
 //  Site Containers
 //  ===========================================
 
 .container {
-	max-width: 1000px;
+	max-width: $site-width;
 	width: 95%;
 	margin: 0 auto;
 	padding: 20px 0;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
+
+.recipe--container {
+	width: 65.52%;
+	@media only screen and (max-width: $site-width) {
+		width: 100%;
+	}
+}
+
+.shopping--container {
+	width: 31.03%;
+	@media only screen and (max-width: $site-width) {
+		width: 100%;
+	}
 }
 
 //  ===========================================
@@ -83,9 +107,17 @@ header {
 //  Footer
 //  ===========================================
 
-footer .container {
-	padding: 0;
-	p {
-		margin: 0 0 20px;
+footer {
+	width: 100%;
+	.container {
+		padding: 0;
+		p {
+			font-size: 12px;
+			margin: 20px 0;
+		}
+		a {
+			color: $color-grey__medium;
+			text-decoration: none;
+		}
 	}
 }

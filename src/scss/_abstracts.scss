@@ -23,10 +23,12 @@ html {
 //  Variables
 //  ===========================================
 
+// --------------  Layout //
+$site-width: 1000px;
+
 // --------------  Fonts //
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
 $font-primary: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // --------------  Colours //
@@ -59,6 +61,7 @@ $color-grey__dark: #404040;
 	@include round-corner;
 	border: 1px solid $color-grey__medium;
 	background: $color-grey__light;
+	&:focus {
+		border: 1px solid $color-green;
+	}
 }
-
-

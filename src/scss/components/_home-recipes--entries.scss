@@ -5,13 +5,10 @@
 .recipe--entry {
 	background: $color-grey__light;
 	border-radius: 3px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	padding: 20px;
 	position: relative;
 	transition: all 0.25s ease-in;
-	&:last-child {
-		margin: 0;
-	}
 	.recipe--meta {
 		display: flex;
 		justify-content: flex-start;

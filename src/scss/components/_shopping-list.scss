@@ -3,7 +3,6 @@
 //  ===========================================
 
 .shopping--container {
-	width: 31.03%;
 	.shopping-title {
 		display: flex;
 		justify-content: space-between;
@@ -42,7 +41,8 @@
 			margin: 0 15px 15px 0;
 		}
 	}
-	#deleteIngredients {
+	#deleteIngredients,
+	#printShopping {
 		float: right;
 	}
 }

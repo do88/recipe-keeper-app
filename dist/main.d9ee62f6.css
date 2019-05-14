@@ -367,6 +367,16 @@ svg {
   overflow: visible;
 }
 
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
 .container {
   max-width: 1000px;
   width: 95%;
@@ -375,6 +385,24 @@ svg {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.recipe--container {
+  width: 65.52%;
+}
+@media only screen and (max-width: 1000px) {
+  .recipe--container {
+    width: 100%;
+  }
+}
+
+.shopping--container {
+  width: 31.03%;
+}
+@media only screen and (max-width: 1000px) {
+  .shopping--container {
+    width: 100%;
+  }
 }
 
 header {
@@ -425,11 +453,19 @@ header .header--recipe-details .header--recipe-updated {
   margin-top: 3px;
 }
 
+footer {
+  width: 100%;
+}
 footer .container {
   padding: 0;
 }
 footer .container p {
-  margin: 0 0 20px;
+  font-size: 12px;
+  margin: 20px 0;
+}
+footer .container a {
+  color: #808080;
+  text-decoration: none;
 }
 
 html,
@@ -470,9 +506,6 @@ h1 {
   margin: 0;
 }
 
-.shopping--container {
-  width: 31.03%;
-}
 .shopping--container .shopping-title {
   display: flex;
   justify-content: space-between;
@@ -513,29 +546,31 @@ h1 {
   background: #f7f7f7;
   margin: 0 15px 15px 0;
 }
-.shopping--container #deleteIngredients {
+.shopping--container form input:focus {
+  border: 1px solid #63cab9;
+}
+.shopping--container #deleteIngredients,
+.shopping--container #printShopping {
   float: right;
 }
 
-.recipe--container {
-  width: 65.52%;
-}
-.recipe--container .recipe--title-bar {
+.recipe--title-bar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.recipe--container .recipe--title-bar h1 {
+.recipe--title-bar h1 {
   flex-grow: 1;
   align-self: center;
   margin: 0;
 }
-.recipe--container .recipe--title-bar a {
+.recipe--title-bar a {
   flex-shrink: 1;
   align-self: center;
   margin-left: 15px;
 }
-.recipe--container .recipe--title-bar select {
+.recipe--title-bar select {
   flex-shrink: 1;
   align-self: center;
   width: 240px;
@@ -547,7 +582,7 @@ h1 {
   border-radius: 3px;
   padding: 8px;
 }
-.recipe--container .recipe--title-bar select:focus {
+.recipe--title-bar select:focus {
   outline: none;
 }
 
@@ -582,17 +617,27 @@ h1 {
   height: 25px;
   margin-top: 15px;
 }
+.recipe--form-rating ul {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.recipe--form-rating ul > li svg {
+  fill: #808080;
+}
+.recipe--form-rating ul > li.hover svg {
+  fill: #ffdeae;
+}
+.recipe--form-rating ul > li.selected svg {
+  fill: #ffb548;
+}
 
 .recipe--entry {
   background: #f7f7f7;
   border-radius: 3px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 20px;
   position: relative;
   transition: all 0.25s ease-in;
-}
-.recipe--entry:last-child {
-  margin: 0;
 }
 .recipe--entry .recipe--meta {
   display: flex;
@@ -649,11 +694,19 @@ h1 {
   margin-right: 10px;
   color: #808080;
   text-decoration: none;
+  transition: all 0.25s ease-in;
+}
+.recipe--form-labels-edit a:hover {
+  color: #2c2c2c;
 }
 .recipe--form-labels-save a {
   color: #63cab9;
   font-weight: 700;
   text-decoration: none;
+  transition: all 0.25s ease-in;
+}
+.recipe--form-labels-save a:hover {
+  color: #226358;
 }
 .recipe--form-labels .recipe--form-title {
   width: 100%;
@@ -670,12 +723,15 @@ h1 {
   border: 1px solid #808080;
   background: #f7f7f7;
 }
+.recipe--form-labels .recipe--form-title input:focus {
+  border: 1px solid #63cab9;
+}
 
 .recipe--form-details {
   display: flex;
   flex-wrap: wrap;
 }
-.recipe--form-details div {
+.recipe--form-details > div {
   margin-right: 20px;
 }
 .recipe--form-details .recipe--form-time input {
@@ -687,15 +743,16 @@ h1 {
   width: 70px;
   margin-right: 5px;
 }
-
-body {
-  counter-reset: section;
-  /* Set a counter named 'section', and its initial value is 0. */
+.recipe--form-details .recipe--form-time input:focus {
+  border: 1px solid #63cab9;
 }
 
 .recipe--form-instructions {
   font-size: 16px;
   line-height: 1.5;
+  margin-bottom: 20px;
+  counter-reset: section;
+  /* Set a counter named 'section', and its initial value is 0. */
 }
 .recipe--form-instructions ol {
   padding: 0;
@@ -726,8 +783,53 @@ body {
   background: #f7f7f7;
   margin-right: 15px;
 }
+.recipe--form-instructions form textarea:focus {
+  border: 1px solid #63cab9;
+}
 .recipe--form-instructions #deleteRecipe {
   float: right;
+}
+
+.recipe--form-type form {
+  display: flex;
+  margin-top: 10px;
+}
+.recipe--form-type form input[type=radio] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.recipe--form-type form input[type=radio]:active ~ label {
+  opacity: 1;
+}
+.recipe--form-type form input[type=radio]:checked ~ label {
+  opacity: 1;
+}
+.recipe--form-type form input[type=radio]:checked ~ label .fishDish {
+  fill: #ffb548;
+}
+.recipe--form-type form input[type=radio]:checked ~ label .vegDish {
+  fill: #63cab9;
+}
+.recipe--form-type form input[type=radio]:checked ~ label .meatDish {
+  fill: #fe5858;
+}
+.recipe--form-type form label {
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0.33;
+  transition: all 0.25s ease-in-out;
+}
+.recipe--form-type form label:hover, .recipe--form-type form label:focus, .recipe--form-type form label:active {
+  opacity: 0.5;
+}
+.recipe--form-type form label svg {
+  width: 30px;
+  height: 30px;
+}
+.recipe--form-type form div {
+  display: flex;
+  margin-right: 10px;
 }
 
 .button {

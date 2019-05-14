@@ -1,8 +1,7 @@
 //  ===========================================
-//  Recipe form
+//  title and labels
 //  ===========================================
 
-// title and labels
 .recipe--form-labels {
 	display: flex;
 	flex-wrap: wrap;
@@ -17,11 +16,19 @@
 		margin-right: 10px;
 		color: $color-grey__medium;
 		text-decoration: none;
+		transition: all 0.25s ease-in;
+		&:hover {
+			color: darken($color-grey__medium, 33%);
+		}
 	}
 	&-save a {
 		color: $color-green;
 		font-weight: 700;
 		text-decoration: none;
+		transition: all 0.25s ease-in;
+		&:hover {
+			color: darken($color-green, 33%);
+		}
 	}
 	.recipe--form-title {
 		width: 100%;
@@ -37,11 +44,14 @@
 	}
 }
 
-// recipe form details
+//  ===========================================
+//  recipe form details
+//  ===========================================
+
 .recipe--form-details {
 	display: flex;
 	flex-wrap: wrap;
-	div {
+	> div {
 		margin-right: 20px;
 	}
 	// Recipe form time and form
@@ -56,14 +66,15 @@
 	// Recipe form SVG checkbox maybe?
 }
 
-body {
-	counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
-}
+//  ===========================================
+//  styling for the instructions
+//  ===========================================
 
-// styling for the instructions
 .recipe--form-instructions {
 	font-size: 16px;
 	line-height: 1.5;
+	margin-bottom: 20px;
+	counter-reset: section; /* Set a counter named 'section', and its initial value is 0. */
 	ol {
 		padding: 0;
 		li {

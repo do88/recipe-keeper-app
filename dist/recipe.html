@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body class="site">
 	<!-- Header bar -->
 	<header>
 		<div class="container">
@@ -37,7 +37,7 @@
 	</header>
 
 	<!-- Main Home Container -->
-	<div class="container">
+	<div class="container site-content">
 
 		<!-- Error box -->
 		<div class="error">
@@ -66,27 +66,27 @@
 					<div class="recipe--form-rating">
 						<span>Set rating:<br></span>
 						<ul id="ratingsRecipe">
-							<li>
+							<li class="star" data-value="1">
 								<svg>
 									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
 								</svg>
 							</li>
-							<li>
+							<li class="star" data-value="2">
 								<svg>
 									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
 								</svg>
 							</li>
-							<li>
+							<li class="star" data-value="3">
 								<svg>
 									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
 								</svg>
 							</li>
-							<li>
+							<li class="star" data-value="4">
 								<svg>
 									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
 								</svg>
 							</li>
-							<li>
+							<li class="star" data-value="5">
 								<svg>
 									<use href="/StarGrey.6d9010aa.svg#StarGrey"></use>
 								</svg>
@@ -99,9 +99,32 @@
 					</div>
 					<div class="recipe--form-type">
 						Meal type:<br>
-						<img src="/FishDish.98c72d61.svg" alt="">
-						<img src="/VegDish.faab0dfd.svg" alt="">
-						<img src="/MeatDish.f8e1b9af.svg" alt="">
+						<form>
+							<div>
+								<input type="radio" name="mealType”" id="fishDish">
+								<label for="fishDish">
+									<svg class="fishDish">
+										<use href="/FishDish.98c72d61.svg#FishDish"></use>
+									</svg>
+								</label>
+							</div>
+							<div>
+								<input type="radio" name="mealType”" id="vegDish">
+								<label for="vegDish" class="vegDish">
+									<svg class="vegDish">
+										<use href="/VegDish.faab0dfd.svg#VegDish"></use>
+									</svg>
+								</label>
+							</div>
+							<div>
+								<input type="radio" name="mealType”" id="meatDish">
+								<label for="meatDish" class="meatDish">
+									<svg class="meatDish">
+										<use href="/MeatDish.f8e1b9af.svg#MeatDish"></use>
+									</svg>
+								</label>
+							</div>
+						</form>
 					</div>
 				</div>
 
@@ -109,6 +132,13 @@
 				<div class="recipe--form-instructions">
 					<!-- Recipe steps -->
 					<ol>
+						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
+							<a href="#" class="inline-button inline-button__delete">
+								<svg>
+									<use href="/Cross.8277dbf0.svg#Cross"></use>
+								</svg>Delete
+							</a>
+						</li>
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
 							<a href="#" class="inline-button inline-button__delete">
 								<svg>
