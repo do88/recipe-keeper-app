@@ -6,7 +6,7 @@
 		".eslintrc": true,
 		"package-lock.json": true,
 		".git": true,
-		"dist": true,
+		// "dist": true,
 		".postcssrc": true,
 	}
 }
