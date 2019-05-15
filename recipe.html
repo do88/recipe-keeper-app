@@ -13,8 +13,8 @@
 
 <body class="site">
 	<!-- Header bar -->
-	<header>
-		<div class="container">
+	<header class="main">
+		<section class="container">
 			<!-- Header logo -->
 			<div class="header--logo">
 				<svg>
@@ -33,25 +33,25 @@
 			<div class="header--recipe-save">
 				<a href="#" class="button button__green" id="saveAndExit">Save and exit </a>
 			</div>
-		</div>
+		</section>
 	</header>
 
 	<!-- Main Home Container -->
 	<div class="container site-content">
 
 		<!-- Error box -->
-		<div class="error">
-			<div class="error--message">
-				<p>Error: Please set meal type</p>
+		<div class="message">
+			<div class="message--container">
+				<!-- <p class="message--error">Error: Please set meal type</p> -->
 			</div>
 		</div>
 
 		<!-- Recipe container -->
-		<div class="recipe--container">
-			<div class="recipe--form">
+		<main class="recipe--container">
+			<section class="recipe--form">
 
 				<!-- Recipe title -->
-				<div class="recipe--form-labels">
+				<header class="recipe--form-labels">
 					<div class="recipe--form-labels-title">Title</div>
 					<div class="recipe--form-labels-edit"><a href="" id="editTitle">Edit</a></div>
 					<div class="recipe--form-labels-save"><a href="" id="saveTitle">Save</a></div>
@@ -59,7 +59,7 @@
 						<h1>Jacket potatoes with tuna and spring onions</h1>
 						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here...">
 					</div>
-				</div>
+				</header>
 
 				<!-- Recipe form details -->
 				<div class="recipe--form-details">
@@ -167,15 +167,15 @@
 					<a href="#" class="button button__delete" id="deleteRecipe">Delete Recipe</a>
 				</div>
 
-			</div><!-- End of recipe form -->
-		</div><!-- End of recipe container -->
+			</section><!-- End of recipe form -->
+		</main><!-- End of recipe container -->
 
 		<!-- Shopping list -->
-		<div class="shopping--container">
+		<aside class="shopping--container">
 			<!-- List title -->
-			<div class="shopping-title">
+			<header class="shopping-title">
 				<h2>Ingredients</h2>
-			</div>
+			</header>
 
 			<!-- Shopping list -->
 			<ul>
@@ -221,7 +221,7 @@
 
 			<!-- Delete all items in list -->
 			<a href="#" class="button button__delete" id="deleteIngredients">Delete All Ingredients</a>
-		</div>
+		</aside>
 
 	</div><!-- End of container -->
 

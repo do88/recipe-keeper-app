@@ -1,0 +1,28 @@
+//  ===========================================
+//  Error
+//  ===========================================
+
+.message {
+	width: 100%;
+	&--container {
+		p {
+			margin: 0;
+			@include round-corner;
+			margin: 0;
+			color: #fff;
+			font-weight: 700;
+			text-align: center;
+			padding: 8px;
+			margin-bottom: 15px;
+			&.message--error {
+				background: $color-red;
+			}
+			&.message--success {
+				background: $color-green;
+			}
+			&.message--alert {
+				background: $color-yellow;
+			}
+		}
+	}
+}

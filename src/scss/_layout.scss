@@ -55,7 +55,7 @@ svg {
 //  Header
 //  ===========================================
 
-header {
+header.main {
 	width: 100%;
 	background: $color-grey__light;
 	.header--logo {
@@ -99,6 +99,7 @@ header {
 			font-size: 14px;
 			color: $color-red;
 			margin-top: 3px;
+			text-align: right;
 		}
 	}
 }

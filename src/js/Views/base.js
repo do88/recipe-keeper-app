@@ -13,13 +13,16 @@ export const elements = {
 	sortOrder: $('#sortOrder'), // Sort order dropdown
 	addRecipe: $('#addRecipe'), // Add new recipe button
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
+	recipeMessages: $('.recipe--messages'), // Clear all the shopping basket button
 
 	// Home generated HTML
 	recipeAddToBasketButton: $('.recipe--list-button'), // add ingredients to basket button !needs (ID)!!!
 	recipeTitle: $('.recipe--title'), // recipe title
+	recipeEntry: $('.recipe--entry'), // recipe entries
 
 	// Recipe existing HTML
 	saveAndExit: $('#saveAndExit'), // save and exit back to index button
+	singRecipeCreated: $('.header--recipe-created'), // save and exit back to index button
 
 	deleteIngredients: $('#deleteIngredients'), // delete all added ingredients
 	deleteRecipe: $('#deleteRecipe'), // delete the recipe itself
@@ -41,7 +44,6 @@ export const elements = {
 	// Recipe generated HTML
 	deleteStep: $('.delete_step'), // delete a recipe step
 	deleteIngredient: $('.delete_ingredient'), // delete a recipe step
-
 };
 
 //  ===========================================

@@ -12,7 +12,7 @@
 
 <body class="site">
 	<!-- Header bar -->
-	<header>
+	<header class="main">
 		<div class="container">
 			<!-- Header logo -->
 			<div class="header--logo">
@@ -31,13 +31,13 @@
 	</header>
 
 	<!-- Main Home Container -->
-	<div class="container site-content">
+	<main class="container site-content">
 
 		<!-- Recipe container -->
-		<div class="recipe--container">
+		<section class="recipe--container">
 
 			<!-- Recipe title bar -->
-			<div class="recipe--title-bar">
+			<header class="recipe--title-bar">
 				<h1>Recipes</h1>
 				<select id="sortOrder">
 					<option value="" selected>Choose recipe order</option>
@@ -46,12 +46,12 @@
 					<option value="date">Date Created</option>
 				</select>
 				<a href="#" class="button button__green" id="addRecipe">Add Recipe</a>
-			</div>
+			</header>
 
-			<h2>Click 'Add Recipe' to get started!</h2>
+			<h2 class="recipe--messages"></h2>
 
 			<!-- Recipe entry -->
-			<div class="recipe--entry">
+			<article class="recipe--entry 01">
 				<!-- Recipe meta -->
 				<div class="recipe--meta">
 					<div class="recipe--rating">
@@ -99,7 +99,9 @@
 				</div>
 				<!-- Recipe title -->
 				<div class="recipe--title">
-					<a href="#"><h3>Jacket potatoes with tuna and spring onions</h3></a>
+					<a href="#">
+						<h3>Jacket potatoes with tuna and spring onions</h3>
+					</a>
 				</div>
 				<!-- Add to shopping list button -->
 				<div class="recipe--list-button">
@@ -110,26 +112,89 @@
 						Add to basket
 					</a>
 				</div>
-			</div>
+			</article>
 
-		<!-- End of recipe container -->
-		</div>
+			<!-- Recipe entry -->
+			<article class="recipe--entry 02">
+				<!-- Recipe meta -->
+				<div class="recipe--meta">
+					<div class="recipe--rating">
+						<span>Rating: </span>
+						<ul id="ratingsHome">
+							<li>
+								<svg>
+									<use href="/src/img/StarGrey.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/src/img/StarGrey.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/src/img/StarGrey.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/src/img/StarGrey.svg#StarGrey"></use>
+								</svg>
+							</li>
+							<li>
+								<svg>
+									<use href="/src/img/StarGrey.svg#StarGrey"></use>
+								</svg>
+							</li>
+						</ul>
+
+					</div>
+					<div class="recipe--time">
+						Cooking Time: <span>45min</span>
+					</div>
+					<div class="recipe--created">
+						Created: <span>6 days ago</span>
+					</div>
+					<div class="recipe--type">
+						<svg>
+							<use href="/src/img/FishDish.svg#FishDish"></use>
+						</svg>
+					</div>
+				</div>
+				<!-- Recipe title -->
+				<div class="recipe--title">
+					<a href="#">
+						<h3>Pancakes</h3>
+					</a>
+				</div>
+				<!-- Add to shopping list button -->
+				<div class="recipe--list-button">
+					<a href="#" class="inline-button inline-button__green">
+						<svg>
+							<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
+						</svg>
+						Add to basket
+					</a>
+				</div>
+			</article>
+
+		</section><!-- End of recipe container -->
 
 		<!-- Shopping list -->
-		<div class="shopping--container">
-			<div class="shopping-title">
+		<aside class="shopping--container">
+			<header class="shopping-title">
 				<h2>Shopping List</h2>
 				<a href="#" class="button button__red" id="clearShopping">Clear</a>
-			</div>
+			</header>
 			<ul class="shopping--list">
 				<li>Potatoes</li>
 				<li>Tin of tuna</li>
 				<li>Spring onions</li>
 			</ul>
 			<a href="" class="button button__purple" id="printShopping">Print shopping list</a>
-		</div>
+		</aside>
 
-	</div><!-- End of container -->
+	</main><!-- End of container -->
 
 	<!-- FOOTER -->
 	<footer>
