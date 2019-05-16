@@ -83,7 +83,7 @@ $(document).ready(() => {
 });
 
 //  ===========================================
-//  Home Search Functions
+//  Home Search Controller
 //  ===========================================
 
 elements.recipeSearch.on('keyup', (e) => {
@@ -92,7 +92,7 @@ elements.recipeSearch.on('keyup', (e) => {
 });
 
 //  ===========================================
-//  Add recipe
+//  Recipe Controller
 //  ===========================================
 
 $('#addRecipe').on('click', () => {
@@ -107,5 +107,5 @@ $('#addRecipe').on('click', () => {
 });
 
 //  ===========================================
-//  Add to shopping basket
+//  Shopping Basket Controller
 //  ===========================================
