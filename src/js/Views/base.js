@@ -29,15 +29,18 @@ export const elements = {
 
 	saveTitle: $('#saveTitle'), // save the title of the recipe
 	editTitle: $('#editTitle'), // edit the title of the recipe
-
+	recipeFormTitle: $('.recipe--form-title'), // input for the recipe title
 	singleRecipeTitle: $('#recipeTitle'), // input for the recipe title
+
 	ratingsRecipe: $('#ratingsRecipe'), // the rating UL of stars
 	cookingTime: $('#cookingTime'), // cooking time of the recipe
 	mealType: $('#mealType'), // form for the meal type of the recipe
 
+	recipeSteps: $('#recipeSteps'), // recipe preparation steps
 	addInstruction: $('#addInstruction'), // add extra instruction step to recipe button
 	addInstructionForm: $('#addInstructionForm'), // form to add instruction
 
+	shoppingList: $('#shoppingList'), // ingredient list
 	addIngredient: $('#addIngredient'), // button to add ingredient
 	addIngredientForm: $('#addIngredientForm'), // form for the meal type of the recipe
 

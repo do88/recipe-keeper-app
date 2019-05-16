@@ -27,7 +27,7 @@
 					Created <span>12th April 2019</span>
 				</div>
 				<div class="header--recipe-updated">
-					Updated...
+					<!-- Updated... -->
 				</div>
 			</div>
 			<div class="header--recipe-save">
@@ -40,11 +40,11 @@
 	<div class="container site-content">
 
 		<!-- Error box -->
-		<div class="message">
+		<!-- <div class="message">
 			<div class="message--container">
-				<!-- <p class="message--error">Error: Please set meal type</p> -->
+				<p class="message--error">Error: Please set meal type</p>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Recipe container -->
 		<main class="recipe--container">
@@ -56,8 +56,8 @@
 					<div class="recipe--form-labels-edit"><a href="" id="editTitle">Edit</a></div>
 					<div class="recipe--form-labels-save"><a href="" id="saveTitle">Save</a></div>
 					<div class="recipe--form-title">
-						<h1>Jacket potatoes with tuna and spring onions</h1>
-						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here...">
+						<h1></h1>
+						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here..." style="display: none;">
 					</div>
 				</header>
 
@@ -131,8 +131,9 @@
 				<!-- Recipe instructions -->
 				<div class="recipe--form-instructions">
 					<!-- Recipe steps -->
-					<ol>
-						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
+					<h2>Preperation instructions</h2>
+					<ol id="recipeSteps">
+						<!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
 							<a href="#" class="inline-button inline-button__delete delete_ingredient">
 								<svg>
 									<use href="/src/img/Cross.svg#Cross"></use>
@@ -145,7 +146,7 @@
 									<use href="/src/img/Cross.svg#Cross"></use>
 								</svg>Delete
 							</a>
-						</li>
+						</li> -->
 					</ol>
 
 					<!-- Add a step button -->
@@ -156,7 +157,7 @@
 						Add</a>
 
 					<!-- Form to add a step -->
-					<form id="addInstructionForm">
+					<form id="addInstructionForm" style="display: none;">
 						<textarea name="" cols="30" rows="10"></textarea>
 						<button class="button button__green">
 							<svg>
@@ -178,8 +179,8 @@
 			</header>
 
 			<!-- Shopping list -->
-			<ul>
-				<li>Potatoes
+			<ul id="shoppingList">
+				<!-- <li>Potatoes
 					<a href="#" class="inline-button inline-button__delete delete_step">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
@@ -192,14 +193,7 @@
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
 					</a>
-				</li>
-				<li>Potatoes
-					<a href="#" class="inline-button inline-button__delete delete_step">
-						<svg>
-							<use href="/src/img/Cross.svg#Cross"></use>
-						</svg>Delete
-					</a>
-				</li>
+				</li> -->
 			</ul>
 
 			<!-- Add item to list -->
@@ -210,7 +204,7 @@
 				Add</a>
 
 			<!-- Form for new items -->
-			<form id="addIngredientForm">
+			<form id="addIngredientForm" style="display: none;">
 				<input type="text">
 				<button class="button button__green">
 					<svg>
