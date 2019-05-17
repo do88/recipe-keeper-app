@@ -2,7 +2,7 @@
 //  title and labels
 //  ===========================================
 
-.recipe--form-labels {
+.recipe__form-labels {
 	display: flex;
 	flex-wrap: wrap;
 	&-title {
@@ -14,11 +14,11 @@
 	&-edit a {
 		font-weight: 700;
 		margin-right: 10px;
-		color: $color-grey__medium;
+		color: $color-grey--medium;
 		text-decoration: none;
 		transition: all 0.25s ease-in;
 		&:hover {
-			color: darken($color-grey__medium, 33%);
+			color: darken($color-grey--medium, 33%);
 		}
 	}
 	&-save a {
@@ -30,7 +30,7 @@
 			color: darken($color-green, 33%);
 		}
 	}
-	.recipe--form-title {
+	.recipe__form-title {
 		width: 100%;
 		margin-bottom: 20px;
 		h1 {
@@ -45,17 +45,48 @@
 }
 
 //  ===========================================
+//  Recipe ratings for single recipes
+//  ===========================================
+
+.recipe__form-rating {
+	@extend .recipe__rating;
+	flex-direction: column;
+	span {
+		align-self: flex-start;
+	}
+	svg {
+		width: 25px;
+		height: 25px;
+		margin-top: 15px;
+	}
+	ul {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		> li svg {
+			fill: $color-grey--medium;
+		}
+		> li.hover svg {
+			fill: lighten($color-yellow, 20%);
+		}
+		> li.selected svg {
+			fill: $color-yellow;
+		}
+	}
+}
+
+
+//  ===========================================
 //  recipe form details
 //  ===========================================
 
-.recipe--form-details {
+.recipe__form-details {
 	display: flex;
 	flex-wrap: wrap;
 	> div {
 		margin-right: 20px;
 	}
 	// Recipe form time and form
-	.recipe--form-time {
+	.recipe__form-time {
 		input {
 			margin-top: 5px;
 			@include input-style;
@@ -70,7 +101,7 @@
 //  styling for the instructions
 //  ===========================================
 
-.recipe--form-instructions {
+.recipe__form-instructions {
 	font-size: 16px;
 	line-height: 1.5;
 	margin-bottom: 20px;
@@ -82,7 +113,7 @@
 	ol {
 		padding: 0;
 		li {
-			border-bottom: 1px dotted $color-grey__medium;
+			border-bottom: 1px dotted $color-grey--medium;
 			padding: 10px 0;
 			display: flex;
 			&::before {

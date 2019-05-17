@@ -6,7 +6,7 @@ html,
 body {
 	height: 100%;
 	margin: 0;
-	color: $color-grey__dark;
+	color: $color-grey--dark;
 }
 
 svg {
@@ -37,14 +37,14 @@ svg {
 	flex-wrap: wrap;
 }
 
-.recipe--container {
+.recipe-container {
 	width: 65.52%;
 	@media only screen and (max-width: $site-width) {
 		width: 100%;
 	}
 }
 
-.shopping--container {
+.shopping-container {
 	width: 31.03%;
 	@media only screen and (max-width: $site-width) {
 		width: 100%;
@@ -55,10 +55,10 @@ svg {
 //  Header
 //  ===========================================
 
-header.main {
+header.header {
 	width: 100%;
-	background: $color-grey__light;
-	.header--logo {
+	background: $color-grey--light;
+	.header__logo {
 		align-self: center;
 		flex-grow: 1;
 		svg {
@@ -66,7 +66,7 @@ header.main {
 			height: 43px;
 		}
 	}
-	.header--search-form {
+	.header__search-form {
 		align-self: center;
 		display: flex;
 		svg {
@@ -79,23 +79,23 @@ header.main {
 			padding: 10px;
 			@include round-corner;
 			outline: 0;
-			border: 1px solid $color-grey__medium;
+			border: 1px solid $color-grey--medium;
 			width: 250px;
 		}
 	}
-	.header--recipe-save {
+	.header__recipe-save {
 		align-self: flex-start;
 		margin-left: 15px;
 	}
-	.header--recipe-details {
+	.header__recipe-details {
 		align-self: flex-start;
-		.header--recipe-created {
+		.header__recipe-created {
 			font-weight: 700;
 			font-size: 18px;
 			color: $color-purple;
 			margin-top: 3px;
 		}
-		.header--recipe-updated {
+		.header__recipe-updated {
 			font-size: 14px;
 			color: $color-red;
 			margin-top: 3px;
@@ -117,7 +117,7 @@ footer {
 			margin: 20px 0;
 		}
 		a {
-			color: $color-grey__medium;
+			color: $color-grey--medium;
 			text-decoration: none;
 		}
 	}

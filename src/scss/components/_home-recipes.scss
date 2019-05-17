@@ -2,9 +2,7 @@
 //  Home Recipe
 //  ===========================================
 
-
-
-.recipe--title-bar {
+.recipe__title-bar {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -26,9 +24,9 @@
 		width: 240px;
 		-moz-appearance: none;
 		-webkit-appearance: none;
-		background: $color-grey__light;
+		background: $color-grey--light;
 		background: url(./../img/sort-down.png) 95% no-repeat #eee;
-		border: 1px solid $color-grey__medium;
+		border: 1px solid $color-grey--medium;
 		@include round-corner;
 		padding: 8px;
 		&:focus {

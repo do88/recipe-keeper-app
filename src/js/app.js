@@ -1,8 +1,10 @@
 import $ from 'jquery';
-import createNewRecipe from './Models/NewRecipe';
+// Data imports
+import createNewRecipe from './Models/Recipe';
 import { saveLocalStorage, loadLocalStorage } from './Models/LocalStorage';
+// View imports
+import * as recipeView from './Views/recipeView';
 import filterRecipesList from './Views/searchView';
-import renderSingleRecipe from './Views/recipeView';
 import { elements, jqueryStarRatingWatchers } from './Views/base';
 
 //  ===========================================
@@ -23,7 +25,7 @@ $(document).ready(() => {
 	} else {
 		// Load state from local storage
 		jqueryStarRatingWatchers();
-		renderSingleRecipe(state);
+		recipeView.renderSingleRecipe(state);
 	}
 });
 
@@ -56,5 +58,30 @@ $('#addRecipe').on('click', () => {
 });
 
 //  ===========================================
-//  Single Recipe Page Controller
+//  Single Recipe Page Controllers
 //  ===========================================
+
+// ------------------ Add new ingredient ------------------ //
+
+$(elements.addIngredient).on('click', () => {
+	$(elements.addIngredientForm).css('display', '');
+});
+
+$(elements.addIngredientForm).on('submit', (e) => {
+	e.preventDefault();
+	const currentRecipe = recipeView.getCurrentRecipe(state);
+	// Push value into current state object
+	state.recipeEntries.ingredients.push(e.target[0].value);
+	// Hide form
+	$(this).css('display', 'none');
+	// Update list HTML
+	// Show saving message
+	// save state to localhost
+});
+
+// ------------------ Delete all ingredients ------------------ //
+$(elements.deleteIngredients).on('click', () => {
+	const currentRecipe = recipeView.getCurrentRecipe(state);
+	currentRecipe.ingredients = [];
+	$(elements.shoppingList).html('');
+});

@@ -37,9 +37,9 @@ $color-red: #fe5858;
 $color-green: #63cab9;
 $color-purple: #635d9d;
 $color-yellow: #ffb548;
-$color-grey__light: #f7f7f7;
-$color-grey__medium: #808080;
-$color-grey__dark: #404040;
+$color-grey--light: #f7f7f7;
+$color-grey--medium: #808080;
+$color-grey--dark: #404040;
 
 //  ===========================================
 //  Mixins
@@ -59,8 +59,8 @@ $color-grey__dark: #404040;
 @mixin input-style {
 	padding: 12px;
 	@include round-corner;
-	border: 1px solid $color-grey__medium;
-	background: $color-grey__light;
+	border: 1px solid $color-grey--medium;
+	background: $color-grey--light;
 	&:focus {
 		border: 1px solid $color-green;
 	}

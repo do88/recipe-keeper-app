@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Recipe Keeper</title>
+	<title>Recipe Keeper - Your Favourite Recipes</title>
 	<link rel="icon" href="/src/img/Favicon.png">
 	<link rel="stylesheet" href="/src/scss/main.scss">
 
@@ -13,25 +13,25 @@
 
 <body class="site">
 	<!-- Header bar -->
-	<header class="main">
+	<header class="header">
 		<section class="container">
 			<!-- Header logo -->
-			<div class="header--logo">
+			<div class="header__logo">
 				<svg>
 					<use href="/src/img/Logo.svg#Logo"></use>
 				</svg>
 			</div>
 			<!-- Header search form -->
-			<div class="header--recipe-details">
-				<div class="header--recipe-created">
+			<div class="header__recipe-details">
+				<div class="header__recipe-created">
 					Created <span>12th April 2019</span>
 				</div>
-				<div class="header--recipe-updated">
+				<div class="header__recipe-updated">
 					<!-- Updated... -->
 				</div>
 			</div>
-			<div class="header--recipe-save">
-				<a href="#" class="button button__green" id="saveAndExit">Save and exit </a>
+			<div class="header__recipe-save">
+				<a href="#" class="button button--green" id="saveAndExit">Save and exit </a>
 			</div>
 		</section>
 	</header>
@@ -47,23 +47,23 @@
 		</div> -->
 
 		<!-- Recipe container -->
-		<main class="recipe--container">
-			<section class="recipe--form">
+		<main class="recipe-container">
+			<section class="recipe__form">
 
 				<!-- Recipe title -->
-				<header class="recipe--form-labels">
-					<div class="recipe--form-labels-title">Title</div>
-					<div class="recipe--form-labels-edit"><a href="" id="editTitle">Edit</a></div>
-					<div class="recipe--form-labels-save"><a href="" id="saveTitle">Save</a></div>
-					<div class="recipe--form-title">
+				<header class="recipe__form-labels">
+					<div class="recipe__form-labels-title">Title</div>
+					<div class="recipe__form-labels-edit"><a href="" id="editTitle">Edit</a></div>
+					<div class="recipe__form-labels-save"><a href="" id="saveTitle">Save</a></div>
+					<div class="recipe__form-title">
 						<h1></h1>
 						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here..." style="display: none;">
 					</div>
 				</header>
 
 				<!-- Recipe form details -->
-				<div class="recipe--form-details">
-					<div class="recipe--form-rating">
+				<div class="recipe__form-details">
+					<div class="recipe__form-rating">
 						<span>Set rating:<br></span>
 						<ul id="ratingsRecipe">
 							<li class="star" data-value="1">
@@ -93,11 +93,11 @@
 							</li>
 						</ul>
 					</div>
-					<div class="recipe--form-time">
+					<div class="recipe__form-time">
 						Cooking time:<br>
 						<input type="number" id="cookingTime"><label>minutes</label>
 					</div>
-					<div class="recipe--form-type">
+					<div class="recipe__form-type">
 						Meal type:<br>
 						<form id="mealType">
 							<div>
@@ -129,19 +129,19 @@
 				</div>
 
 				<!-- Recipe instructions -->
-				<div class="recipe--form-instructions">
+				<div class="recipe__form-instructions">
 					<!-- Recipe steps -->
 					<h2>Preperation instructions</h2>
 					<ol id="recipeSteps">
 						<!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button__delete delete_ingredient">
+							<a href="#" class="inline-button inline-button--delete delete-step">
 								<svg>
 									<use href="/src/img/Cross.svg#Cross"></use>
 								</svg>Delete
 							</a>
 						</li>
 						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button__delete delete_ingredient">
+							<a href="#" class="inline-button inline-button--delete delete-step">
 								<svg>
 									<use href="/src/img/Cross.svg#Cross"></use>
 								</svg>Delete
@@ -150,7 +150,7 @@
 					</ol>
 
 					<!-- Add a step button -->
-					<a href="#" id="addInstruction" class="inline-button inline-button__green">
+					<a href="#" id="addInstruction" class="inline-button inline-button--green">
 						<svg>
 							<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 						</svg>
@@ -159,36 +159,36 @@
 					<!-- Form to add a step -->
 					<form id="addInstructionForm" style="display: none;">
 						<textarea name="" cols="30" rows="10"></textarea>
-						<button class="button button__green">
+						<button class="button button--green">
 							<svg>
 								<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 							</svg>
 						</button>
 					</form>
-					<a href="#" class="button button__delete" id="deleteRecipe">Delete Recipe</a>
+					<a href="#" class="button button--delete" id="deleteRecipe">Delete Recipe</a>
 				</div>
 
 			</section><!-- End of recipe form -->
 		</main><!-- End of recipe container -->
 
 		<!-- Shopping list -->
-		<aside class="shopping--container">
+		<aside class="shopping-container">
 			<!-- List title -->
-			<header class="shopping-title">
+			<header class="shopping--title">
 				<h2>Ingredients</h2>
 			</header>
 
 			<!-- Shopping list -->
 			<ul id="shoppingList">
 				<!-- <li>Potatoes
-					<a href="#" class="inline-button inline-button__delete delete_step">
+					<a href="#" class="inline-button inline-button--delete delete-ingredient">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
 					</a>
 				</li>
 				<li>Potatoes
-					<a href="#" class="inline-button inline-button__delete delete_step">
+					<a href="#" class="inline-button inline-button--delete delete-ingredient">
 						<svg>
 							<use href="/src/img/Cross.svg#Cross"></use>
 						</svg>Delete
@@ -197,16 +197,16 @@
 			</ul>
 
 			<!-- Add item to list -->
-			<a href="#" id="addIngredient" class="inline-button inline-button__green">
+			<a href="#" id="addIngredient" class="inline-button inline-button--green">
 				<svg>
 					<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 				</svg>
-				Add</a>
+			Add</a>
 
 			<!-- Form for new items -->
 			<form id="addIngredientForm" style="display: none;">
-				<input type="text">
-				<button class="button button__green">
+				<input type="text" name="ingredient">
+				<button class="button button--green">
 					<svg>
 						<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 					</svg>
@@ -214,7 +214,7 @@
 			</form>
 
 			<!-- Delete all items in list -->
-			<a href="#" class="button button__delete" id="deleteIngredients">Delete All Ingredients</a>
+			<a href="#" class="button button--delete" id="deleteIngredients">Delete All Ingredients</a>
 		</aside>
 
 	</div><!-- End of container -->

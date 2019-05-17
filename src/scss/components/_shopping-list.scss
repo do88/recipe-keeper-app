@@ -2,8 +2,8 @@
 //  Shopping List
 //  ===========================================
 
-.shopping--container {
-	.shopping-title {
+.shopping-container {
+	.shopping__title {
 		display: flex;
 		justify-content: space-between;
 		h2 {
@@ -19,7 +19,7 @@
 		padding: 0;
 		margin-bottom: 10px;
 		li {
-			border-bottom: 1px dotted $color-grey__medium;
+			border-bottom: 1px dotted $color-grey--medium;
 			padding: 10px 0;
 			font-weight: 700;
 			color: $color-purple;

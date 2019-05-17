@@ -5,7 +5,7 @@
 .button {
 	@include round-corner;
 	display: inline-flex;
-	background-color: $color-grey__medium;
+	background-color: $color-grey--medium;
 	padding: 10px;
 	color: #fff;
 	text-decoration: none;
@@ -20,19 +20,19 @@
 		fill: #fff;
 	}
 	&:hover {
-		background-color: $color-grey__dark;
+		background-color: $color-grey--dark;
 	}
-	&__green {
+	&--green {
 		@include button-colour($color-green);
 	}
-	&__purple {
+	&--purple {
 		@include button-colour($color-purple);
 	}
-	&__red {
+	&--red {
 		@include button-colour($color-red);
 	}
-	&__delete {
-		background-color: $color-grey__medium;;
+	&--delete {
+		background-color: $color-grey--medium;;
 		&:hover {
 			background-color: $color-red;
 		}
@@ -64,7 +64,7 @@
 .inline-button {
 	display: inline-flex;
 	align-items: center;
-	color: $color-grey__medium;
+	color: $color-grey--medium;
 	text-decoration: none;
 	transition: all 0.25s ease-in;
 	font-weight: 700;
@@ -73,17 +73,17 @@
 		width: 10px;
 		height: 10px;
 		margin-right: 5px;
-		fill: $color-grey__medium;
+		fill: $color-grey--medium;
 		transition: all 0.25s ease-in;
 		align-self: center;
 	}
 	&:hover {
-		color: darken($color-grey__medium, 33%);
+		color: darken($color-grey--medium, 33%);
 		svg {
-			fill: darken($color-grey__medium, 33%);
+			fill: darken($color-grey--medium, 33%);
 		}
 	}
-	&__green {
+	&--green {
 		color: $color-green;
 		svg {
 			fill: $color-green;
@@ -95,8 +95,8 @@
 			}
 		}
 	}
-	&__delete {
-		color: $color-grey__medium;
+	&--delete {
+		color: $color-grey--medium;
 		&:hover {
 			color: darken($color-red, 0%);
 			svg {

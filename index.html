@@ -5,23 +5,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Recipe Keeper</title>
+	<title>Recipe Keeper - Your Favourite Recipes</title>
 	<link rel="icon" href="/src/img/Favicon.png">
 	<link rel="stylesheet" href="/src/scss/main.scss">
 </head>
 
 <body class="site">
 	<!-- Header bar -->
-	<header class="main">
+	<header class="header">
 		<div class="container">
 			<!-- Header logo -->
-			<div class="header--logo">
+			<div class="header__logo">
 				<svg>
 					<use href="/src/img/Logo.svg#Logo"></use>
 				</svg>
 			</div>
 			<!-- Header search form -->
-			<div class="header--search-form">
+			<div class="header__search-form">
 				<svg>
 					<use href="/src/img/SearchGlass.svg#SearchGlass"></use>
 				</svg>
@@ -34,10 +34,10 @@
 	<main class="container site-content">
 
 		<!-- Recipe container -->
-		<section class="recipe--container">
+		<section class="recipe-container">
 
 			<!-- Recipe title bar -->
-			<header class="recipe--title-bar">
+			<header class="recipe__title-bar">
 				<h1>Recipes</h1>
 				<select id="sortOrder">
 					<option value="" selected>Choose recipe order</option>
@@ -45,16 +45,16 @@
 					<option value="alpha">Alphabetical</option>
 					<option value="date">Date Created</option>
 				</select>
-				<a href="#" class="button button__green" id="addRecipe">Add Recipe</a>
+				<a href="#" class="button button--green" id="addRecipe">Add Recipe</a>
 			</header>
 
-			<h2 class="recipe--messages"></h2>
+			<h2 class="recipe__messages"></h2>
 
 			<!-- Recipe entry -->
-			<article class="recipe--entry 01">
+			<article class="recipe__entry 01">
 				<!-- Recipe meta -->
-				<div class="recipe--meta">
-					<div class="recipe--rating">
+				<div class="recipe__meta">
+					<div class="recipe__rating">
 						<span>Rating: </span>
 						<ul id="ratingsHome">
 							<li>
@@ -85,27 +85,27 @@
 						</ul>
 
 					</div>
-					<div class="recipe--time">
+					<div class="recipe__time">
 						Cooking Time: <span>45min</span>
 					</div>
-					<div class="recipe--created">
+					<div class="recipe__created">
 						Created: <span>6 days ago</span>
 					</div>
-					<div class="recipe--type">
+					<div class="recipe__type">
 						<svg>
 							<use href="/src/img/FishDish.svg#FishDish"></use>
 						</svg>
 					</div>
 				</div>
 				<!-- Recipe title -->
-				<div class="recipe--title">
+				<div class="recipe__title">
 					<a href="#">
 						<h3>Jacket potatoes with tuna and spring onions</h3>
 					</a>
 				</div>
 				<!-- Add to shopping list button -->
-				<div class="recipe--list-button">
-					<a href="#" class="inline-button inline-button__green">
+				<div class="recipe__list-button">
+					<a href="#" class="inline-button inline-button--green">
 						<svg>
 							<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 						</svg>
@@ -115,10 +115,10 @@
 			</article>
 
 			<!-- Recipe entry -->
-			<article class="recipe--entry 02">
+			<article class="recipe__entry 02">
 				<!-- Recipe meta -->
-				<div class="recipe--meta">
-					<div class="recipe--rating">
+				<div class="recipe__meta">
+					<div class="recipe__rating">
 						<span>Rating: </span>
 						<ul id="ratingsHome">
 							<li>
@@ -149,27 +149,27 @@
 						</ul>
 
 					</div>
-					<div class="recipe--time">
+					<div class="recipe__time">
 						Cooking Time: <span>45min</span>
 					</div>
-					<div class="recipe--created">
+					<div class="recipe__created">
 						Created: <span>6 days ago</span>
 					</div>
-					<div class="recipe--type">
+					<div class="recipe__type">
 						<svg>
 							<use href="/src/img/FishDish.svg#FishDish"></use>
 						</svg>
 					</div>
 				</div>
 				<!-- Recipe title -->
-				<div class="recipe--title">
+				<div class="recipe__title">
 					<a href="#">
 						<h3>Pancakes</h3>
 					</a>
 				</div>
 				<!-- Add to shopping list button -->
-				<div class="recipe--list-button">
-					<a href="#" class="inline-button inline-button__green">
+				<div class="recipe__list-button">
+					<a href="#" class="inline-button inline-button--green">
 						<svg>
 							<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
 						</svg>
@@ -181,17 +181,17 @@
 		</section><!-- End of recipe container -->
 
 		<!-- Shopping list -->
-		<aside class="shopping--container">
-			<header class="shopping-title">
+		<aside class="shopping-container">
+			<header class="shopping__title">
 				<h2>Shopping List</h2>
-				<a href="#" class="button button__red" id="clearShopping">Clear</a>
+				<a href="#" class="button button--red" id="clearShopping">Clear</a>
 			</header>
-			<ul class="shopping--list">
+			<ul id="shoppingList">
 				<li>Potatoes</li>
 				<li>Tin of tuna</li>
 				<li>Spring onions</li>
 			</ul>
-			<a href="" class="button button__purple" id="printShopping">Print shopping list</a>
+			<a href="" class="button button--purple" id="printShopping">Print shopping list</a>
 		</aside>
 
 	</main><!-- End of container -->

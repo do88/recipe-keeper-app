@@ -9,27 +9,27 @@ import $ from 'jquery';
 export const elements = {
 	// Home existing HTML
 	recipeSearch: $('#recipeSearch'), // Search box on home
-	recipeContainer: $('.recipe--container'), // Container for the recipe entries
+	recipeContainer: $('.recipe__container'), // Container for the recipe entries
 	sortOrder: $('#sortOrder'), // Sort order dropdown
 	addRecipe: $('#addRecipe'), // Add new recipe button
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
-	recipeMessages: $('.recipe--messages'), // Clear all the shopping basket button
+	recipeMessages: $('.recipe__messages'), // Clear all the shopping basket button
 
 	// Home generated HTML
-	recipeAddToBasketButton: $('.recipe--list-button'), // add ingredients to basket button !needs (ID)!!!
-	recipeTitle: $('.recipe--title'), // recipe title
-	recipeEntry: $('.recipe--entry'), // recipe entries
+	recipeAddToBasketButton: $('.recipe__list-button'), // add ingredients to basket button !needs (ID)!!!
+	recipeTitle: $('.recipe__title'), // recipe title
+	recipeEntry: $('.recipe__entry'), // recipe entries
 
 	// Recipe existing HTML
 	saveAndExit: $('#saveAndExit'), // save and exit back to index button
-	singRecipeCreated: $('.header--recipe-created'), // save and exit back to index button
+	singRecipeCreated: $('.header__recipe-created'), // save and exit back to index button
 
 	deleteIngredients: $('#deleteIngredients'), // delete all added ingredients
 	deleteRecipe: $('#deleteRecipe'), // delete the recipe itself
 
 	saveTitle: $('#saveTitle'), // save the title of the recipe
 	editTitle: $('#editTitle'), // edit the title of the recipe
-	recipeFormTitle: $('.recipe--form-title'), // input for the recipe title
+	recipeFormTitle: $('.recipe__form-title'), // input for the recipe title
 	singleRecipeTitle: $('#recipeTitle'), // input for the recipe title
 
 	ratingsRecipe: $('#ratingsRecipe'), // the rating UL of stars
@@ -45,8 +45,8 @@ export const elements = {
 	addIngredientForm: $('#addIngredientForm'), // form for the meal type of the recipe
 
 	// Recipe generated HTML
-	deleteStep: $('.delete_step'), // delete a recipe step
-	deleteIngredient: $('.delete_ingredient'), // delete a recipe step
+	deleteStep: $('.delete-step'), // delete a recipe step
+	deleteIngredient: $('.delete-ingredient'), // delete a recipe step
 };
 
 //  ===========================================
