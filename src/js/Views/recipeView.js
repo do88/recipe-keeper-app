@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import moment from 'moment';
 import CrossSVG from '../../img/Cross.svg';
-import { elements } from './base';
+import { elements, getCurrentRecipe, jqueryStarRatingWatchers } from './base';
 
 // Jacket potatoes with tuna and spring onions
 // http://localhost:1234/recipe.html#b943440b-af1d-46e1-b9d9-8fd8ebd62fb7
@@ -11,6 +11,8 @@ export function renderSingleRecipe(currentState) {
 	const currentRecipe = getCurrentRecipe(currentState);
 	// Set the page <title></title>
 	document.title = `Recipe Keeper - ${currentRecipe.title}`;
+	// Start the star rating watcher
+	jqueryStarRatingWatchers();
 	// Set date
 	setDate(currentRecipe.creationTime);
 	// Set ingredients
@@ -25,17 +27,6 @@ export function renderSingleRecipe(currentState) {
 	setMealType(currentRecipe.mealType);
 	// // Set instructions
 	setInstructions(currentRecipe.instructions);
-}
-
-export function getCurrentRecipe(state) {
-	// Get the current page hash
-	const pageID = window.location.hash.substr(1);
-	// Check hash against object ids
-	const currentRecipeIndex = state.recipeEntries.findIndex(item => item.id === pageID);
-	// Get correct object from recipeEntries array
-	const currentRecipe = state.recipeEntries[currentRecipeIndex];
-	// Return current recipe object
-	return currentRecipe;
 }
 
 function setDate(creationTime) {
@@ -67,8 +58,7 @@ function setTitle(title) {
 function setRating(rating) {
 	if (rating) {
 		const stars = $('li.star');
-		let i;
-		for (i = 0; i < rating; i++) {
+		for (let i = 0; i < rating; i++) {
 			$(stars[i]).addClass('selected');
 		}
 	}

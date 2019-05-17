@@ -1,11 +1,13 @@
+// Modules imports
 import $ from 'jquery';
 // Data imports
-import createNewRecipe from './Models/Recipe';
-import { saveLocalStorage, loadLocalStorage } from './Models/LocalStorage';
+import * as recipeObj from './Models/Recipe';
+import * as localStorage from './Models/LocalStorage';
 // View imports
+import * as homeView from './Views/homeView';
 import * as recipeView from './Views/recipeView';
 import filterRecipesList from './Views/searchView';
-import { elements, jqueryStarRatingWatchers } from './Views/base';
+import { elements, getCurrentRecipe } from './Views/base';
 
 //  ===========================================
 //  Init functions - Get the ball rolling
@@ -16,15 +18,14 @@ let state;
 
 $(document).ready(() => {
 	// Load state from local storage
-	state = loadLocalStorage();
+	state = localStorage.loadData();
 	window.state = state; // Temp exposure of state object
 
 	if (window.location.pathname === '/') {
-		// Clear the search input
-		$(elements.recipeSearch).val('');
+		// Render the home HTML
+		homeView.renderHomeView(state);
 	} else {
 		// Load state from local storage
-		jqueryStarRatingWatchers();
 		recipeView.renderSingleRecipe(state);
 	}
 });
@@ -48,13 +49,13 @@ elements.recipeSearch.on('keyup', (e) => {
 
 $('#addRecipe').on('click', () => {
 	// Create new object
-	const newRecipe = createNewRecipe();
+	const recipe = recipeObj.createNewRecipe();
 	// push it to the state
-	state.recipeEntries.push(newRecipe);
+	state.recipeEntries.push(recipe);
 	// Save state to localStorage
-	saveLocalStorage(state);
+	localStorage.saveData(state);
 	// redirect to new recipe page
-	window.location.assign(`recipe.html#${newRecipe.id}`);
+	window.location.assign(`recipe.html#${recipe.id}`);
 });
 
 //  ===========================================
@@ -62,14 +63,13 @@ $('#addRecipe').on('click', () => {
 //  ===========================================
 
 // ------------------ Add new ingredient ------------------ //
-
 $(elements.addIngredient).on('click', () => {
 	$(elements.addIngredientForm).css('display', '');
 });
 
 $(elements.addIngredientForm).on('submit', (e) => {
 	e.preventDefault();
-	const currentRecipe = recipeView.getCurrentRecipe(state);
+	const currentRecipe = getCurrentRecipe(state);
 	// Push value into current state object
 	state.recipeEntries.ingredients.push(e.target[0].value);
 	// Hide form
@@ -81,7 +81,7 @@ $(elements.addIngredientForm).on('submit', (e) => {
 
 // ------------------ Delete all ingredients ------------------ //
 $(elements.deleteIngredients).on('click', () => {
-	const currentRecipe = recipeView.getCurrentRecipe(state);
+	const currentRecipe = getCurrentRecipe(state);
 	currentRecipe.ingredients = [];
 	$(elements.shoppingList).html('');
 });

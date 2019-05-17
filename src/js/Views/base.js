@@ -9,7 +9,7 @@ import $ from 'jquery';
 export const elements = {
 	// Home existing HTML
 	recipeSearch: $('#recipeSearch'), // Search box on home
-	recipeContainer: $('.recipe__container'), // Container for the recipe entries
+	recipeContainer: $('#recipeEntries'), // Container for the recipe entries
 	sortOrder: $('#sortOrder'), // Sort order dropdown
 	addRecipe: $('#addRecipe'), // Add new recipe button
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
@@ -50,6 +50,21 @@ export const elements = {
 };
 
 //  ===========================================
+//  Find the current recipe based on URL hash
+//  ===========================================
+
+export function getCurrentRecipe(state) {
+	// Get the current page hash
+	const pageID = window.location.hash.substr(1);
+	// Check hash against object ids
+	const currentRecipeIndex = state.recipeEntries.findIndex(item => item.id === pageID);
+	// Get correct object from recipeEntries array
+	const currentRecipe = state.recipeEntries[currentRecipeIndex];
+	// Return current recipe object
+	return currentRecipe;
+}
+
+//  ===========================================
 //  jQuery rating system
 //  ===========================================
 
@@ -86,13 +101,12 @@ export function jqueryStarRatingWatchers() {
 		const stars = $(this)
 			.parent()
 			.children('li.star');
-		let i;
 
-		for (i = 0; i < stars.length; i++) {
+		for (let i = 0; i < stars.length; i++) {
 			$(stars[i]).removeClass('selected');
 		}
 
-		for (i = 0; i < onStar; i++) {
+		for (let i = 0; i < onStar; i++) {
 			$(stars[i]).addClass('selected');
 		}
 
