@@ -19,9 +19,9 @@ const preFilledStated = {
 		{
 			title: 'Jacket potatoes with tuna and spring onions',
 			id: 'b943440b-af1d-46e1-b9d9-8fd8ebd62fb7',
-			rating: 3,
+			rating: 4,
 			cookingTime: 40,
-			creationTime: '2019-05-16T11:48:42+01:00',
+			creationTime: '2019-05-14T11:48:42+01:00',
 			mealType: 'fishDish',
 			ingredients: [
 				{
@@ -57,7 +57,24 @@ const preFilledStated = {
 			],
 		},
 	],
-	shoppingList: ['Potatoes', 'Tuna', 'Spring Onions', 'Mayo'],
+	shoppingList: [
+		{
+			ingredientID: '01',
+			text: 'Potatoes',
+		},
+		{
+			ingredientID: '02',
+			text: 'Tuna',
+		},
+		{
+			ingredientID: '03',
+			text: 'Spring Onions',
+		},
+		{
+			ingredientID: '04',
+			text: 'Mayo',
+		},
+	],
 };
 
 /* Empty state object to be used once app is working

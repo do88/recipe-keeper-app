@@ -1,3 +1,4 @@
+// NOT USED
 export default class Recipe {
 	constructor(newID, timestamp) {
 		this.title = '';

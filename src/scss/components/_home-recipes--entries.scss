@@ -32,19 +32,28 @@
 				color: $color-purple;
 			}
 		}
-	}
-	.recipe__title a {
-		text-decoration: none;
-		color: $color-grey--dark;
-		z-index: 1;
-		&:hover {
-			color: $color-purple;
+		.recipe__type.FishDish svg {
+			fill: $color-yellow;
 		}
-		h3 {
-			margin: 0;
-			font-size: 34px;
-			font-weight: 300;
-			margin-top: 10px;
+		.recipe__type.MeatDish svg {
+			fill: $color-red;
+		}
+		.recipe__type.VegDish svg {
+			fill: $color-green;
+		}
+	}
+	.recipe__title h3 {
+		margin: 0;
+		font-size: 34px;
+		font-weight: 300;
+		margin-top: 10px;
+		a {
+			text-decoration: none;
+			color: $color-grey--dark;
+			z-index: 1;
+			&:hover {
+				color: $color-purple;
+			}
 		}
 	}
 	.recipe__list-button {
@@ -72,6 +81,17 @@
 			svg {
 				align-self: center;
 			}
+		}
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		> li svg {
+			fill: $color-grey--medium;
+		}
+		> li.hover svg {
+			fill: lighten($color-yellow, 20%);
+		}
+		> li.selected svg {
+			fill: $color-yellow;
 		}
 	}
 }

@@ -13,6 +13,7 @@ export const elements = {
 	sortOrder: $('#sortOrder'), // Sort order dropdown
 	addRecipe: $('#addRecipe'), // Add new recipe button
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
+	printShopping: $('#printShopping'), // Clear all the shopping basket button
 	recipeMessages: $('.recipe__messages'), // Clear all the shopping basket button
 
 	// Home generated HTML
@@ -50,12 +51,12 @@ export const elements = {
 };
 
 //  ===========================================
-//  Find the current recipe based on URL hash
+//  Find the current recipe based on URL hash or ID thrown in there
 //  ===========================================
 
-export function getCurrentRecipe(state) {
-	// Get the current page hash
-	const pageID = window.location.hash.substr(1);
+export function getCurrentRecipe(state, id) {
+	// Check if id has been submitted or single recipe page
+	const pageID = id || window.location.hash.substr(1);
 	// Check hash against object ids
 	const currentRecipeIndex = state.recipeEntries.findIndex(item => item.id === pageID);
 	// Get correct object from recipeEntries array

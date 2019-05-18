@@ -40,8 +40,37 @@ elements.recipeSearch.on('keyup', (e) => {
 });
 
 //  ===========================================
-//  Shopping Basket Controller
+//  Shopping Basket Controllers
 //  ===========================================
+
+// -------------- Add recipe ingredients to shopping basket //
+elements.recipeContainer.on('click', (e) => {
+	if ($(e.target).hasClass('addToBasket')) {
+		const recipeID = $(e.target).parent().parent().attr('id');
+		// Get recipe that was clicked on
+		const currentRecipe = getCurrentRecipe(state, recipeID);
+		// Push ingredients to state.basket
+		currentRecipe.ingredients.forEach((item) => {
+			state.shoppingList.push(item);
+		});
+		// Save to localhost
+		localStorage.saveData(state);
+		// Update basket HTML
+		homeView.renderShoppingBasket(state.shoppingList);
+	}
+});
+
+// -------------- Clear all shopping basket items //
+elements.clearShopping.on('click', () => {
+	// Empty array of ingredients
+	state.shoppingList = [];
+	// Save to localhost
+	localStorage.saveData(state);
+	// Update basket HTML
+	homeView.renderShoppingBasket(state.shoppingList);
+});
+
+// -------------- Delete ingredient from list //
 
 //  ===========================================
 //  Recipe Controller
@@ -62,7 +91,7 @@ $('#addRecipe').on('click', () => {
 //  Single Recipe Page Controllers
 //  ===========================================
 
-// ------------------ Add new ingredient ------------------ //
+// -------------- Add new ingredient //
 $(elements.addIngredient).on('click', () => {
 	$(elements.addIngredientForm).css('display', '');
 });
@@ -79,7 +108,7 @@ $(elements.addIngredientForm).on('submit', (e) => {
 	// save state to localhost
 });
 
-// ------------------ Delete all ingredients ------------------ //
+// -------------- Delete all ingredients //
 $(elements.deleteIngredients).on('click', () => {
 	const currentRecipe = getCurrentRecipe(state);
 	currentRecipe.ingredients = [];

@@ -21,6 +21,7 @@ svg {
 
 .site-content {
 	flex: 1;
+	z-index: 1;
 }
 
 //  ===========================================
@@ -58,6 +59,7 @@ svg {
 header.header {
 	width: 100%;
 	background: $color-grey--light;
+	z-index: 10;
 	.header__logo {
 		align-self: center;
 		flex-grow: 1;
