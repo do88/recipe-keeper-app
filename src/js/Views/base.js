@@ -15,6 +15,7 @@ export const elements = {
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
 	printShopping: $('#printShopping'), // print the shopping list
 	searchMessage: $('.recipe__messages'), // Clear all the shopping basket button
+	shoppingList: $('#shoppingList'), // ingredient list
 
 	// Home generated HTML
 	recipeAddToBasketButton: $('.recipe__list-button'), // add ingredients to basket button !needs (ID)!!!
@@ -43,7 +44,7 @@ export const elements = {
 	addInstruction: $('#addInstruction'), // add extra instruction step to recipe button
 	addInstructionForm: $('#addInstructionForm'), // form to add instruction
 
-	shoppingList: $('#shoppingList'), // ingredient list
+	shoppingListRecipe: $('#shoppingListRecipe'), // ingredient list
 	addIngredient: $('#addIngredient'), // button to add ingredient
 	addIngredientForm: $('#addIngredientForm'), // form for the meal type of the recipe
 

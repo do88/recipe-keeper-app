@@ -87,9 +87,6 @@
 		> li svg {
 			fill: $color-grey--medium;
 		}
-		> li.hover svg {
-			fill: lighten($color-yellow, 20%);
-		}
 		> li.selected svg {
 			fill: $color-yellow;
 		}

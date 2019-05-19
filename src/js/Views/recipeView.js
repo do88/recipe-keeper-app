@@ -34,15 +34,34 @@ function setDate(creationTime) {
 }
 
 export function setIngredients(ingredients) {
+	$(elements.shoppingList).html('');
 	ingredients.forEach((item) => {
 		$(elements.shoppingList).append(`
-			<li class="${item.ingredientID}">${item.text}
-				<a href="#" class="inline-button inline-button--delete delete-step">
+			<li id="${item.ingredientID}">
+			${item.text}
+				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
 						<use href="${CrossSVG}#Cross"></use>
 					</svg>Delete
 				</a>
 			</li>
+		`);
+	});
+}
+
+export function setInstructions(instructions) {
+	$(elements.recipeSteps).html('');
+	instructions.forEach((item) => {
+		$(elements.recipeSteps).append(`
+		<li id="${item.instructionID}">
+			<p>${item.text}</p>
+			<a href="#" class="inline-button edit-instruction">Edit</a>
+			<a href="#" class="inline-button inline-button--delete delete-instruction">
+				<svg>
+					<use href="${CrossSVG}#Cross"></use>
+				</svg>Delete
+			</a>
+		</li>
 		`);
 	});
 }
@@ -70,18 +89,4 @@ function setCookingTime(time) {
 
 function setMealType(meal) {
 	if (meal) $(elements.mealType).find(`#${meal}`).attr('checked', true);
-}
-
-function setInstructions(instructions) {
-	instructions.forEach((item) => {
-		$(elements.recipeSteps).append(`
-		<li class="${item.instructionID}">${item.text}
-			<a href="#" class="inline-button inline-button__delete delete_ingredient">
-				<svg>
-					<use href="/src/img/Cross.svg#Cross"></use>
-				</svg>Delete
-			</a>
-		</li>
-		`);
-	});
 }

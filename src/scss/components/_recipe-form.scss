@@ -68,6 +68,7 @@
 		}
 		> li.hover svg {
 			fill: lighten($color-yellow, 20%);
+			cursor: pointer;
 		}
 		> li.selected svg {
 			fill: $color-yellow;
@@ -113,15 +114,26 @@
 	}
 	ol {
 		padding: 0;
+		margin: 0 0 15px;
 		li {
 			border-bottom: 1px dotted $color-grey--medium;
-			padding: 10px 0;
+			padding: 10px 5px;
 			display: flex;
+			p {
+				margin: 0;
+				flex-grow: 1;
+			}
 			&::before {
 				counter-increment: section; /* Increment the value of section counter by 1 */
 				content: counter(section); /* Display the value of section counter */
 				padding-right: 10px;
 				font-weight: bold;
+			}
+			.edit-instruction {
+				margin-right: 10px;
+			}
+			&.active {
+				background: $color-grey--light;
 			}
 		}
 	}

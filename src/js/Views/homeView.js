@@ -44,7 +44,6 @@ function setRating(rating, id) {
 		for (let i = 0; i < rating; i++) {
 			$(stars[i]).addClass('selected');
 		}
-		console.log(stars);
 	}
 }
 
