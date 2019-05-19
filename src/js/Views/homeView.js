@@ -20,14 +20,14 @@ export function renderHomeView(currentState) {
 
 export function renderShoppingBasket(basketItems) {
 	// Sort array alphabetically
-	const sortedItems = basketItems.sort((a, b) => (a.text.toUpperCase() > b.text.toUpperCase() ? -1 : 1));
+	const sortedItems = basketItems.sort((a, b) => (a.text.toUpperCase() > b.text.toUpperCase() ? 1 : -1));
 	// Clear HTML
 	$(elements.shoppingList).html('');
 	// Add items in the HTML elements
 	sortedItems.forEach((item) => {
 		$(elements.shoppingList).append(`
-			<li class="${item.ingredientID}">${item.text}
-				<a href="#" class="inline-button inline-button--delete delete-step">
+			<li id="${item.ingredientID}">${item.text}
+				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
 						<use href="${CrossSVG}#Cross"></use>
 					</svg>Delete
@@ -38,12 +38,13 @@ export function renderShoppingBasket(basketItems) {
 }
 
 // Function to set rating
-function setRating(rating) {
+function setRating(rating, id) {
 	if (rating) {
-		const stars = $('li.star');
+		const stars = $(`#${id} li.star`);
 		for (let i = 0; i < rating; i++) {
 			$(stars[i]).addClass('selected');
 		}
+		console.log(stars);
 	}
 }
 
@@ -144,6 +145,6 @@ function renderRecipeArticles(entries) {
 			</article>
 		`);
 		// Set rating for stars
-		setRating(item.rating);
+		setRating(item.rating, item.id);
 	});
 }

@@ -4,7 +4,9 @@
 
 .message {
 	width: 100%;
-	&--container {
+	// height: 45px;
+	display: block;
+	&__container {
 		p {
 			margin: 0;
 			@include round-corner;
@@ -14,13 +16,13 @@
 			text-align: center;
 			padding: 8px;
 			margin-bottom: 15px;
-			&.message--error {
+			&.message__error {
 				background: $color-red;
 			}
-			&.message--success {
+			&.message__success {
 				background: $color-green;
 			}
-			&.message--alert {
+			&.message__alert {
 				background: $color-yellow;
 			}
 		}

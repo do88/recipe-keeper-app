@@ -13,8 +13,8 @@ export const elements = {
 	sortOrder: $('#sortOrder'), // Sort order dropdown
 	addRecipe: $('#addRecipe'), // Add new recipe button
 	clearShopping: $('#clearShopping'), // Clear all the shopping basket button
-	printShopping: $('#printShopping'), // Clear all the shopping basket button
-	recipeMessages: $('.recipe__messages'), // Clear all the shopping basket button
+	printShopping: $('#printShopping'), // print the shopping list
+	searchMessage: $('.recipe__messages'), // Clear all the shopping basket button
 
 	// Home generated HTML
 	recipeAddToBasketButton: $('.recipe__list-button'), // add ingredients to basket button !needs (ID)!!!
@@ -23,7 +23,9 @@ export const elements = {
 
 	// Recipe existing HTML
 	saveAndExit: $('#saveAndExit'), // save and exit back to index button
-	singRecipeCreated: $('.header__recipe-created'), // save and exit back to index button
+	singRecipeCreated: $('.header__recipe-created'), // recipe created at date
+	singRecipeUpdated: $('.header__recipe-updated'), // show message that recipe is updated
+	recipeMessages: $('.message__container'), // Clear all the shopping basket button
 
 	deleteIngredients: $('#deleteIngredients'), // delete all added ingredients
 	deleteRecipe: $('#deleteRecipe'), // delete the recipe itself
@@ -91,7 +93,7 @@ export function jqueryStarRatingWatchers() {
 			$(this)
 				.parent()
 				.children('li.star')
-				.each(function (e) {
+				.each(function () {
 					$(this).removeClass('hover');
 				});
 		});
@@ -110,14 +112,5 @@ export function jqueryStarRatingWatchers() {
 		for (let i = 0; i < onStar; i++) {
 			$(stars[i]).addClass('selected');
 		}
-
-		// JUST RESPONSE (Not needed)
-		const ratingValue = parseInt(
-			$('#ratingsRecipe li.selected')
-				.last()
-				.data('value'),
-			10,
-		);
-		console.log(ratingValue);
 	});
 }
