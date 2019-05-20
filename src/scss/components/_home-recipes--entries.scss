@@ -12,7 +12,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	.recipe__meta {
-		order: 2;
+		@media only screen and (max-width: $site-width--responsive) {
+			order: 2;
+		}
 		display: flex;
 		justify-content: flex-start;
 		flex-wrap: wrap;
@@ -20,7 +22,7 @@
 			flex-basis: content;
 			align-self: center;
 			margin-right: 12px;
-			@media only screen and (max-width: $site-width) {
+			@media only screen and (max-width: $site-width--responsive) {
 				flex-basis: 50%;
 				margin-bottom: 10px;
 			}
@@ -50,12 +52,15 @@
 		}
 	}
 	.recipe__title {
-		order: 1;
+		@media only screen and (max-width: $site-width--responsive) {
+			order: 1;
+			margin-bottom: 15px;
+		}
+		flex-basis: 100%;
 		h3 {
 			margin: 0;
 			font-size: 34px;
 			font-weight: 300;
-			margin-top: 10px;
 			a {
 				text-decoration: none;
 				color: $color-grey--dark;
@@ -68,7 +73,9 @@
 	}
 	.recipe__list-button {
 		margin-top: 12px;
-		order: 3;
+		@media only screen and (max-width: $site-width--responsive) {
+			order: 3;
+		}
 	}
 }
 
