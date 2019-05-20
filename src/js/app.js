@@ -15,11 +15,6 @@ import { elements, getCurrentRecipe } from './Views/base';
 //  Init functions - Get the ball rolling
 //  ======================================================================================
 
-// Prevent button links working
-$('a').on('click', (e) => {
-	e.preventDefault();
-});
-
 // Define state and currentRecipe var
 let state;
 let currentRecipe;
@@ -28,6 +23,10 @@ $(document).ready(() => {
 	// Load state from local storage
 	state = localStorage.loadData();
 	currentRecipe = getCurrentRecipe(state);
+
+	window.state = state;
+	window.currentRecipe = currentRecipe;
+
 	if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
 		// Render the home HTML
 		homeView.renderHomeView(state);
@@ -35,6 +34,11 @@ $(document).ready(() => {
 		// Load state from local storage
 		recipeView.renderSingleRecipe(state);
 	}
+});
+
+// Disable default actions for buttons through site except for footer
+$('a').on('click', (e) => {
+	if (!$('footer')) e.preventDefault();
 });
 
 //  ======================================================================================
@@ -54,6 +58,7 @@ elements.recipeSearch.on('keyup', (e) => {
 // -------------- Add recipe ingredients to shopping basket //
 elements.recipeContainer.on('click', (e) => {
 	if ($(e.target).hasClass('addToBasket')) {
+		e.preventDefault();
 		const recipeID = $(e.target).parent().parent().attr('id');
 		// Get recipe that was clicked on
 		const currentRecipeHome = getCurrentRecipe(state, recipeID);
@@ -75,8 +80,10 @@ elements.clearShopping.on('click', () => {
 
 // -------------- Delete ingredient from list //
 elements.shoppingList.on('click', (e) => {
-	if ($(e.target).hasClass('delete-ingredient') && currentRecipe === undefined) {
-		const clickedIngredient = state.shoppingList.findIndex(i => i.ingredientID === e.target.parentElement.id);
+	if ($(e.target).closest('a').hasClass('delete-ingredient') && currentRecipe === undefined) {
+		e.preventDefault();
+		const clickedIngredientID = $(e.target).closest('li').attr('id');
+		const clickedIngredient = state.shoppingList.findIndex(i => i.ingredientID === clickedIngredientID);
 		// Delete ingredient from state
 		state.shoppingList.splice(clickedIngredient, 1);
 		localStorage.saveData(state);
@@ -115,13 +122,15 @@ elements.saveAndExit.on('click', () => {
 });
 
 // -------------- Show title input form //
-elements.editTitle.on('click', () => {
+elements.editTitle.on('click', (e) => {
+	e.preventDefault();
 	elements.recipeFormTitle.find('h1').hide();
 	elements.singleRecipeTitle.val(currentRecipe.title).show();
 });
 
 // -------------- Save title input field //
-elements.saveTitle.on('click', () => {
+elements.saveTitle.on('click', (e) => {
+	e.preventDefault();
 	// Check if field is actually being edited
 	if (elements.singleRecipeTitle[0].style.display === 'none') {
 		// do nothing
@@ -161,14 +170,15 @@ elements.mealType.on('click', (e) => {
 });
 
 // -------------- Open form to add instructions //
-elements.addInstruction.on('click', () => {
+elements.addInstruction.on('click', (e) => {
+	e.preventDefault();
 	elements.addInstructionForm.slideDown();
 });
 
 // -------------- Edit instructional step //
 elements.recipeSteps.on('click', (e) => {
 	e.preventDefault();
-	if ($(e.target).hasClass('edit-instruction')) {
+	if ($(e.target).closest('a').hasClass('edit-instruction')) {
 		// Check for active classes and remove it
 		$(elements.recipeSteps).find('.active').removeClass('active');
 		// Set li class to active
@@ -176,7 +186,8 @@ elements.recipeSteps.on('click', (e) => {
 		// Show the form
 		elements.addInstructionForm.slideDown(() => {
 			// Get the data and fill the form with it
-			const clickedInstructionIndex = currentRecipe.instructions.findIndex(i => i.instructionID === e.target.parentElement.id);
+			const clickedId = $(e.target).closest('li').attr('id');
+			const clickedInstructionIndex = currentRecipe.instructions.findIndex(i => i.instructionID === clickedId);
 			$(elements.addInstructionForm).find('textarea').val(currentRecipe.instructions[clickedInstructionIndex].text);
 		});
 	}
@@ -184,8 +195,10 @@ elements.recipeSteps.on('click', (e) => {
 
 // -------------- Add instructional step to recipe //
 elements.addInstructionForm.on('submit', (e) => {
+	e.preventDefault();
+	const checkForClass = elements.recipeSteps.children().hasClass('active');
 	// Check if this is new information or editing existing by checking for active status
-	if (elements.recipeSteps.children().hasClass('active')) {
+	if (checkForClass) {
 		// Ge the ID of the item being edited
 		const editingListItemID = elements.recipeSteps.find('.active')[0].id;
 		// Find the index of clicked instruction & index of current recipe in state
@@ -211,12 +224,13 @@ elements.addInstructionForm.on('submit', (e) => {
 // -------------- Delete instructional step //
 elements.recipeSteps.on('click', (e) => {
 	e.preventDefault();
-	const checkIfBeingEdited = $(e.target).closest('li').hasClass('active');
-	const checkifButton = $(e.target).hasClass('delete-instruction');
+	const checkIfBeingEdited = $(e.target).closest('ol').children().hasClass('active');
+	const checkifButton = $(e.target).closest('a').hasClass('delete-instruction');
+	const clickedInstructionID = $(e.target).closest('li').attr('id');
 
 	if (checkifButton === true && checkIfBeingEdited === false) {
 		// Find the index of clicked instruction & index of current recipe in state
-		const clickedInstructionIndex = currentRecipe.instructions.findIndex(i => i.instructionID === e.target.parentElement.id);
+		const clickedInstructionIndex = currentRecipe.instructions.findIndex(i => i.instructionID === clickedInstructionID);
 		const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
 		// Delete ingredient from state
 		state.recipeEntries[currentRecipeIndex].instructions.splice(clickedInstructionIndex, 1);
@@ -226,7 +240,8 @@ elements.recipeSteps.on('click', (e) => {
 });
 
 // -------------- Show ingredient form //
-elements.addIngredient.on('click', () => {
+elements.addIngredient.on('click', (e) => {
+	e.preventDefault();
 	elements.addIngredientForm.slideDown();
 });
 
@@ -249,10 +264,16 @@ elements.addIngredientForm.on('submit', (e) => {
 
 // -------------- Delete single ingredient //
 elements.shoppingList.on('click', (e) => {
-	if ($(e.target).hasClass('delete-ingredient') && currentRecipe !== undefined) {
+	if ($(e.target).closest('a').hasClass('delete-ingredient') && currentRecipe !== undefined) {
 		e.preventDefault();
-		const clickedIngredient = state.shoppingList.findIndex(i => i.ingredientID === e.target.parentElement.id);
+		// get the ingredient id
+		const clickedIngredientID = $(e.target).closest('li').attr('id');
+		// get the current recipe index
 		const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
+		// get the ingredient index value in the current recipe
+		const clickedIngredient = state.recipeEntries[currentRecipeIndex]
+			.ingredients.findIndex(i => i.ingredientID === clickedIngredientID);
+
 		// Delete ingredient from state
 		state.recipeEntries[currentRecipeIndex].ingredients.splice(clickedIngredient, 1);
 		localStorage.saveData(state);
@@ -261,7 +282,8 @@ elements.shoppingList.on('click', (e) => {
 });
 
 // -------------- Delete all ingredients //
-$(elements.deleteIngredients).on('click', () => {
+$(elements.deleteIngredients).on('click', (e) => {
+	e.preventDefault();
 	const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
 	state.recipeEntries[currentRecipeIndex].ingredients = [];
 	localStorage.saveData(state);
@@ -278,7 +300,7 @@ $(elements.closeWindow).on('click', () => {
 	$(elements.myModal).fadeToggle();
 });
 
-// -------------- Delete Recipe Cofirm //
+// -------------- Delete Recipe Confirm //
 $(elements.deleteRecipeConfirm).on('click', () => {
 	const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
 	state.recipeEntries.splice(currentRecipeIndex, 1);

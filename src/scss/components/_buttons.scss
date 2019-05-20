@@ -32,7 +32,7 @@
 		@include button-colour($color-red);
 	}
 	&--delete {
-		background-color: $color-grey--medium;;
+		background-color: $color-grey--medium;
 		&:hover {
 			background-color: $color-red;
 		}
@@ -70,12 +70,21 @@
 	font-weight: 700;
 	height: 20px;
 	svg {
-		width: 10px;
-		height: 10px;
-		margin-right: 3px;
 		fill: $color-grey--medium;
 		transition: all 0.25s ease-in;
 		align-self: center;
+	}
+	&[class*='delete'] svg {
+		width: 22px;
+		height: 22px;
+		margin-left: 5px;
+	}
+	&[class*='edit'] svg {
+		width: 22px;
+		height: 22px;
+		margin-left: 10px;
+		fill: $color-yellow;
+
 	}
 	&:hover {
 		color: darken($color-grey--medium, 33%);
@@ -87,6 +96,9 @@
 		color: $color-green;
 		svg {
 			fill: $color-green;
+			margin-right: 5px;
+			width: 14px;
+			height: 14px;
 		}
 		&:hover {
 			color: darken($color-green, 33%);

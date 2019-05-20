@@ -30,7 +30,7 @@ svg {
 
 .container {
 	max-width: $site-width;
-	width: 95%;
+	width: 92%;
 	margin: 0 auto;
 	padding: 20px 0;
 	display: flex;
@@ -85,6 +85,14 @@ header.header {
 			border: 1px solid $color-grey--medium;
 			width: 250px;
 		}
+		@media only screen and (max-width: $site-width--responsive) {
+			width: 100%;
+			margin-top: 10px;
+			input {
+				width: 100%;
+				margin-right: 5%;
+			}
+		}
 	}
 	.header__recipe-save {
 		align-self: flex-start;
@@ -96,7 +104,7 @@ header.header {
 			font-weight: 700;
 			font-size: 18px;
 			color: $color-purple;
-			margin-top: 3px;
+			margin-top: 10px;
 		}
 		.header__recipe-updated {
 			font-size: 14px;
@@ -116,13 +124,16 @@ footer {
 	.container {
 		padding: 0;
 		p {
-			font-size: 12px;
+			font-size: 14px;
 			line-height: 1.5;
 			margin: 20px 0;
 		}
 		a {
 			color: $color-grey--medium;
 			text-decoration: none;
+			&:hover {
+				color: $color-grey--dark;
+			}
 		}
 	}
 }

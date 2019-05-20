@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import moment from 'moment';
-import CrossSVG from '../../img/Cross.svg';
+import BinIcon from '../../img/BinIcon.svg';
 import PlusSymbolSVG from '../../img/PlusSymbol.svg';
 import StarGreySVG from '../../img/StarGrey.svg';
 import FishDishSVG from '../../img/FishDish.svg';
@@ -29,7 +29,7 @@ export function renderShoppingBasket(basketItems) {
 			<li id="${item.ingredientID}">${item.text}
 				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
-						<use href="${CrossSVG}#Cross"></use>
+						<use href="${BinIcon}#BinIcon"></use>
 					</svg>
 				</a>
 			</li>

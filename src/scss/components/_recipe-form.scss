@@ -84,6 +84,8 @@
 .recipe__form-details {
 	display: flex;
 	flex-wrap: wrap;
+	color: $color-purple;
+	font-weight: 700;
 	> div {
 		margin-right: 20px;
 	}

@@ -9,7 +9,10 @@
 	padding: 20px;
 	position: relative;
 	transition: all 0.25s ease-in;
+	display: flex;
+	flex-wrap: wrap;
 	.recipe__meta {
+		order: 2;
 		display: flex;
 		justify-content: flex-start;
 		flex-wrap: wrap;
@@ -17,6 +20,10 @@
 			flex-basis: content;
 			align-self: center;
 			margin-right: 12px;
+			@media only screen and (max-width: $site-width) {
+				flex-basis: 50%;
+				margin-bottom: 10px;
+			}
 		}
 		svg {
 			width: 24px;
@@ -42,22 +49,26 @@
 			fill: $color-green;
 		}
 	}
-	.recipe__title h3 {
-		margin: 0;
-		font-size: 34px;
-		font-weight: 300;
-		margin-top: 10px;
-		a {
-			text-decoration: none;
-			color: $color-grey--dark;
-			z-index: 1;
-			&:hover {
-				color: $color-purple;
+	.recipe__title {
+		order: 1;
+		h3 {
+			margin: 0;
+			font-size: 34px;
+			font-weight: 300;
+			margin-top: 10px;
+			a {
+				text-decoration: none;
+				color: $color-grey--dark;
+				z-index: 1;
+				&:hover {
+					color: $color-purple;
+				}
 			}
 		}
 	}
 	.recipe__list-button {
 		margin-top: 12px;
+		order: 3;
 	}
 }
 

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import moment from 'moment';
-import CrossSVG from '../../img/Cross.svg';
+import BinIcon from '../../img/BinIcon.svg';
+import PencilSVG from '../../img/PencilSVG.svg';
 import { elements, getCurrentRecipe, jqueryStarRatingWatchers } from './base';
 
 // Jacket potatoes with tuna and spring onions
@@ -27,7 +28,6 @@ export function renderSingleRecipe(currentState) {
 	setMealType(currentRecipe.mealType);
 	// // Set instructions
 	setInstructions(currentRecipe.instructions);
-	console.log(currentState);
 }
 
 function setDate(creationTime) {
@@ -42,7 +42,7 @@ export function setIngredients(ingredients) {
 			${item.text}
 				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
-						<use href="${CrossSVG}#Cross"></use>
+						<use href="${BinIcon}#BinIcon"></use>
 					</svg>
 				</a>
 			</li>
@@ -56,11 +56,15 @@ export function setInstructions(instructions) {
 		$(elements.recipeSteps).append(`
 		<li id="${item.instructionID}">
 			<p>${item.text}</p>
-			<a href="#" class="inline-button edit-instruction">Edit</a>
+			<a href="#" class="inline-button edit-instruction">
+				<svg>
+					<use href="${PencilSVG}#PencilSVG"></use>
+				</svg>
+			</a>
 			<a href="#" class="inline-button inline-button--delete delete-instruction">
 				<svg>
-					<use href="${CrossSVG}#Cross"></use>
-				</svg>Delete
+					<use href="${BinIcon}#BinIcon"></use>
+				</svg>
 			</a>
 		</li>
 		`);

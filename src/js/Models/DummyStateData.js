@@ -167,27 +167,114 @@ export const preFilledStated = {
 				},
 			],
 		},
+		{
+			title: '20-minute seafood pasta',
+			id: '005bf6e4-7c75-4a8b-bd5c-a60c5e8276fa',
+			rating: 4,
+			cookingTime: '20',
+			creationTime: '2019-05-20T13:25:44+01:00',
+			mealType: 'fishDish',
+			ingredients: [
+				{
+					ingredientID: 'ccef3319-4f1e-484d-b080-2435fc508677',
+					text: '1 onion  , chopped',
+				},
+				{
+					ingredientID: '5d0a552c-b725-494d-91d6-b49749de697f',
+					text: '1 garlic clove, chopped',
+				},
+				{
+					ingredientID: '79484319-423d-41af-a334-f4decbc722f8',
+					text: '400g can of chopped tomatoes',
+				},
+				{
+					ingredientID: '580ee50b-dc2d-4746-b7a2-96e17e4012b8',
+					text: '300g spaghetti, roughly broken',
+				},
+				{
+					ingredientID: '24545dd5-4b06-401e-8fef-a67dfaa78283',
+					text: '240g pack frozen seafood mix, defrosted',
+				},
+			],
+			instructions: [
+				{
+					instructionID: '4b6c9738-9e36-47bc-a169-382896197b16',
+					text: 'Heat the oil in a wok or large frying pan, then cook the onion and garlic over a medium heat for 5 mins until soft. Add the paprika, tomatoes and stock, then bring to the boil.',
+				},
+				{
+					instructionID: 'c062602f-02bf-4226-9c27-906cf10fc68c',
+					text:
+						'Turn down the heat to a simmer, stir in the pasta and cook for 7 mins, stirring occasionally to stop the pasta from sticking. Stir in the seafood, cook for 3 mins more until it’s all heated through and the pasta is cooked, then season to taste. Sprinkle with parsley and serve with lemon wedges.',
+				},
+			],
+		},
+		{
+			title: 'Halloumi stuffed peppers',
+			id: 'a629e6ba-f11a-4102-abbb-bc2d2e5686e6',
+			rating: 5,
+			cookingTime: '50',
+			creationTime: '2019-05-20T13:27:28+01:00',
+			mealType: 'vegDish',
+			ingredients: [
+				{
+					ingredientID: 'd77c11d3-983c-4bab-8c4f-35c05fbea4b7',
+					text: '4 large red peppers',
+				},
+				{
+					ingredientID: 'b54162ed-95ab-47f4-9ec7-06058f33341e',
+					text: '290g jar antipasti marinated mushroom',
+				},
+				{
+					ingredientID: '773768c9-37ff-4ed5-87ed-4d6094bf8fe2',
+					text: '50g couscous',
+				},
+				{
+					ingredientID: 'ac0cbc94-27bb-40de-8274-135f2bc0b953',
+					text: '100ml hot vegetable stock',
+				},
+				{
+					ingredientID: '51ec749c-cef4-47d1-96e6-fdb9e27bfac0',
+					text: '250g halloumi cheese, cut into cubes',
+				},
+				{
+					ingredientID: '5c59eba6-31f9-410d-9382-aabe29822f67',
+					text: 'mixed salad leaves and garlic bread, to serve',
+				},
+			],
+			instructions: [
+				{
+					instructionID: '3577c754-061a-40f7-8441-23e8fa9eec53',
+					text:
+						'Preheat the oven to 200C/Gas 6/fan oven 180C. Cut the peppers in half through the stalks and scoop out the seeds. Put the peppers in one layer on a baking sheet. Drain the mushrooms, reserving the oil from the jar – drizzle one tablespoon of the oil over the peppers, then sprinkle with salt and pepper. Bake for 20-25 minutes, until the peppers are just tender.',
+				},
+				{
+					instructionID: '6de5d50e-8789-4827-bcb3-02a6f666861d',
+					text:
+						'Tip the couscous into a bowl and pour in the hot stock. Leave for 5 minutes to soak, then fluff up with a fork and stir in the mushrooms, halloumi and parsley. Season with salt and pepper and spoon into the pepper halves. Return to the oven for 15 minutes, until the cheese is golden. Serve the peppers warm with a mixed salad and garlic bread.\n\n',
+				},
+			],
+		},
 	],
 	shoppingList: [
 		{
-			ingredientID: 'de60500d-2fb0-4219-94d8-5efd4ea95651',
-			text: '500ml skimmed milk',
-		},
-		{
-			ingredientID: '640dfa54-bff4-4202-bc95-02edf0d6f04c',
-			text: '25g cornflour',
+			ingredientID: '7b3bdffc-73d1-4e13-b27a-443e8b42d5e2',
+			text: '100g extra mature cheddar Cheddar  , grated (check the label for vegetarian)',
 		},
 		{
 			ingredientID: 'c357594d-8260-430f-a801-f7a72d46556b',
 			text: '220g macaroni',
 		},
 		{
-			ingredientID: '7b3bdffc-73d1-4e13-b27a-443e8b42d5e2',
-			text: '100g extra mature cheddar Cheddar  , grated (check the label for vegetarian)',
+			ingredientID: '640dfa54-bff4-4202-bc95-02edf0d6f04c',
+			text: '25g cornflour',
 		},
 		{
 			ingredientID: 'e0c46a16-dd0a-4579-bd27-b10dd16b9044',
 			text: '25g Grana Padano or vegetarian altenative, grated',
+		},
+		{
+			ingredientID: 'de60500d-2fb0-4219-94d8-5efd4ea95651',
+			text: '500ml skimmed milk',
 		},
 		{
 			ingredientID: 'efb9e800-76dd-4b48-a2c9-dac2a2ad1797',

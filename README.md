@@ -1,7 +1,9 @@
-todo
-1. delete recipe button
-5. add enter keybindings to submit events for forms
-3. fill in default state with 4 recepies
-2. responsive styling
-4. test for errors
-5. set up wordpress on laptop
+DONE
+* delete recipe button
+* fill in default state with 4 recepies
+* set up wordpress on laptop
+* make sure all default actions are disabled for buttons but footer links still work
+
+TODO
+* responsive styling upgrade
+* test for errors
