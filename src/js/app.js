@@ -28,10 +28,6 @@ $(document).ready(() => {
 	// Load state from local storage
 	state = localStorage.loadData();
 	currentRecipe = getCurrentRecipe(state);
-
-	window.state = state; // Temp exposure of state object
-	window.currentRecipe = currentRecipe; // Temp exposure of currentRecipe
-
 	if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
 		// Render the home HTML
 		homeView.renderHomeView(state);
@@ -65,20 +61,15 @@ elements.recipeContainer.on('click', (e) => {
 		currentRecipeHome.ingredients.forEach((item) => {
 			state.shoppingList.push(item);
 		});
-		// Save to localhost
 		localStorage.saveData(state);
-		// Update basket HTML
 		homeView.renderShoppingBasket(state.shoppingList);
 	}
 });
 
 // -------------- Clear all shopping basket items //
 elements.clearShopping.on('click', () => {
-	// Empty array of ingredients
 	state.shoppingList = [];
-	// Save to localhost
 	localStorage.saveData(state);
-	// Update basket HTML
 	homeView.renderShoppingBasket(state.shoppingList);
 });
 
@@ -88,9 +79,7 @@ elements.shoppingList.on('click', (e) => {
 		const clickedIngredient = state.shoppingList.findIndex(i => i.ingredientID === e.target.parentElement.id);
 		// Delete ingredient from state
 		state.shoppingList.splice(clickedIngredient, 1);
-		// Save to localhost
 		localStorage.saveData(state);
-		// Update basket HTML
 		homeView.renderShoppingBasket(state.shoppingList);
 	}
 });
@@ -105,9 +94,7 @@ $('#addRecipe').on('click', () => {
 	const recipe = recipeObj.createNewRecipe();
 	// push it to the state
 	state.recipeEntries.push(recipe);
-	// Save state to localStorage
 	localStorage.saveData(state);
-	// redirect to new recipe page
 	window.location.assign(`recipe.html#${recipe.id}`);
 });
 
@@ -122,10 +109,8 @@ elements.saveAndExit.on('click', () => {
 		// Show error message
 		renderMessage('error', 'Please enter a recipe title before saving');
 	} else {
-		// Save state to localStorage
 		localStorage.saveData(state);
-		// back to home page
-		window.location.assign('/');
+		window.location.assign('/index.html');
 	}
 });
 
@@ -216,9 +201,7 @@ elements.addInstructionForm.on('submit', (e) => {
 		});
 	}
 
-	// Save submission to state
 	localStorage.saveData(state);
-	// Update HTML
 	elements.addInstructionForm.slideUp(() => {
 		elements.addInstructionForm[0].reset();
 		recipeView.setInstructions(currentRecipe.instructions);
@@ -230,15 +213,14 @@ elements.recipeSteps.on('click', (e) => {
 	e.preventDefault();
 	const checkIfBeingEdited = $(e.target).closest('li').hasClass('active');
 	const checkifButton = $(e.target).hasClass('delete-instruction');
+
 	if (checkifButton === true && checkIfBeingEdited === false) {
 		// Find the index of clicked instruction & index of current recipe in state
 		const clickedInstructionIndex = currentRecipe.instructions.findIndex(i => i.instructionID === e.target.parentElement.id);
 		const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
 		// Delete ingredient from state
 		state.recipeEntries[currentRecipeIndex].instructions.splice(clickedInstructionIndex, 1);
-		// Save to localhost
 		localStorage.saveData(state);
-		// Update HTML
 		recipeView.setInstructions(currentRecipe.instructions);
 	}
 });
@@ -258,9 +240,7 @@ elements.addIngredientForm.on('submit', (e) => {
 		text: e.target[0].value,
 	});
 
-	// Save submission to state
 	localStorage.saveData(state);
-	// Hide form
 	elements.addIngredientForm.slideUp(() => {
 		elements.addIngredientForm[0].reset();
 		recipeView.setIngredients(currentRecipe.ingredients);
@@ -275,9 +255,7 @@ elements.shoppingList.on('click', (e) => {
 		const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
 		// Delete ingredient from state
 		state.recipeEntries[currentRecipeIndex].ingredients.splice(clickedIngredient, 1);
-		// Save to localhost
 		localStorage.saveData(state);
-		// Update basket HTML
 		recipeView.setIngredients(currentRecipe.ingredients);
 	}
 });
@@ -288,4 +266,22 @@ $(elements.deleteIngredients).on('click', () => {
 	state.recipeEntries[currentRecipeIndex].ingredients = [];
 	localStorage.saveData(state);
 	$(elements.shoppingList).html('');
+});
+
+// -------------- Open Modal for Delete //
+$(elements.deleteRecipe).on('click', () => {
+	$(elements.myModal).fadeToggle();
+});
+
+// -------------- Close modal //
+$(elements.closeWindow).on('click', () => {
+	$(elements.myModal).fadeToggle();
+});
+
+// -------------- Delete Recipe Cofirm //
+$(elements.deleteRecipeConfirm).on('click', () => {
+	const currentRecipeIndex = state.recipeEntries.findIndex(i => i.id === currentRecipe.id);
+	state.recipeEntries.splice(currentRecipeIndex, 1);
+	localStorage.saveData(state);
+	window.location.assign('/index.html');
 });

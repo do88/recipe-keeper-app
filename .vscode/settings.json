@@ -1,12 +1,12 @@
 {
 	"files.exclude": {
 		"node_modules/": true,
-		".cache": true,
+		// ".cache": true,
 		".babelrc": true,
 		".eslintrc": true,
 		"package-lock.json": true,
 		".git": true,
-		"dist": true,
+		// "dist": true,
 		".postcssrc": true,
 	}
 }

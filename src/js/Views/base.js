@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable func-names */
 /* eslint-disable import/prefer-default-export */
 import $ from 'jquery';
@@ -30,6 +31,9 @@ export const elements = {
 
 	deleteIngredients: $('#deleteIngredients'), // delete all added ingredients
 	deleteRecipe: $('#deleteRecipe'), // delete the recipe itself
+	deleteRecipeConfirm: $('#deleteRecipeConfirm'), // delete the recipe itself confirmation button
+	myModal: $('#myModal'), // modal window
+	closeWindow: $('.close-window'), // closeModal
 
 	saveTitle: $('#saveTitle'), // save the title of the recipe
 	editTitle: $('#editTitle'), // edit the title of the recipe

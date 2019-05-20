@@ -27,6 +27,7 @@ export function renderSingleRecipe(currentState) {
 	setMealType(currentRecipe.mealType);
 	// // Set instructions
 	setInstructions(currentRecipe.instructions);
+	console.log(currentState);
 }
 
 function setDate(creationTime) {
@@ -42,7 +43,7 @@ export function setIngredients(ingredients) {
 				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
 						<use href="${CrossSVG}#Cross"></use>
-					</svg>Delete
+					</svg>
 				</a>
 			</li>
 		`);

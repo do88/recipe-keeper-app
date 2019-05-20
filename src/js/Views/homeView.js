@@ -30,7 +30,7 @@ export function renderShoppingBasket(basketItems) {
 				<a href="#" class="inline-button inline-button--delete delete-ingredient">
 					<svg>
 						<use href="${CrossSVG}#Cross"></use>
-					</svg>Delete
+					</svg>
 				</a>
 			</li>
 		`);

@@ -23,9 +23,9 @@
 			padding: 10px 0;
 			font-weight: 700;
 			color: $color-purple;
-			a {
-				float: right;
-			}
+			display: inline-flex;
+			width: 100%;
+			justify-content: space-between;
 		}
 		+ a {
 			margin-bottom: 10px;
