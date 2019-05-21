@@ -88,6 +88,10 @@
 	font-weight: 700;
 	> div {
 		margin-right: 20px;
+		@media only screen and (max-width: $site-width--responsive) {
+			width: 100%;
+			margin-bottom: 15px;
+		}
 	}
 	// Recipe form time and form
 	.recipe__form-time {
@@ -113,6 +117,9 @@
 	h2 {
 		margin: 20px 0 0;
 		color: $color-red;
+		@media only screen and (max-width: $site-width--responsive) {
+			margin: 0;
+		}
 	}
 	ol {
 		padding: 0;

@@ -97,9 +97,16 @@ header.header {
 	.header__recipe-save {
 		align-self: flex-start;
 		margin-left: 15px;
+		@media only screen and (max-width: $site-width--responsive) {
+			margin-left: 0;
+			margin-top: 10px;
+		}
 	}
 	.header__recipe-details {
 		align-self: flex-start;
+		@media only screen and (max-width: $site-width--responsive) {
+			width: 100%;
+		}
 		.header__recipe-created {
 			font-weight: 700;
 			font-size: 18px;
