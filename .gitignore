@@ -1,4 +1,5 @@
 node_modules/
 dist/
+web/
 .cache/
 .DS_Store

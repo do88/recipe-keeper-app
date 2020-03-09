@@ -1,14 +1,21 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^9.5.1",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "cssnano": "^4.1.10",
-    "sass": "^1.20.1"
-  },
-  "dependencies": {
-    "jquery": "^3.4.1",
-    "moment": "^2.24.0",
-    "uuid": "^3.3.2"
-  }
+	"scripts": {
+		"start": "parcel *.html --no-cache --port 3000 --open",
+		"build:parcel": "parcel build *.html --no-cache --out-dir web --public-url '.'",
+		"build": "npm run clean && npm run build:parcel",
+		"clean": "rm -rf web/*"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.5.1",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"cssnano": "^4.1.10",
+		"sass": "^1.20.1",
+		"jquery": "^3.4.1",
+		"moment": "^2.24.0",
+		"uuid": "^3.3.2"
+	},
+	"dependencies": {
+		"parcel-bundler": "^1.12.4"
+	}
 }
