@@ -1,244 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Recipe Keeper - Your Favourite Recipes</title>
-	<link rel="icon" href="/src/img/Favicon.png">
-	<link rel="stylesheet" href="/src/scss/main.scss">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Keeper — Edit Recipe</title>
+  <link rel="icon" href="/src/img/Favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
 </head>
+<body class="recipe-page">
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
 
-<body class="site">
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
-		<!-- Modal content -->
-		<div class="modal-content">
-			<a href="#" class="inline-button close-window">
-				X Close window
-			</a>
-			<h3>Are you sure you want to delete this, once it's gone it's gone?</h3>
-			<a href="#" class="button button--delete" id="deleteRecipeConfirm">Yes delete the recipe</a>
-		</div>
-	</div>
+  <!-- Delete Modal -->
+  <div class="modal" id="delete-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+      <div class="modal__icon">⚠️</div>
+      <h3 class="modal__title">Delete Recipe?</h3>
+      <p class="modal__text">This action cannot be undone. Are you sure you want to delete this recipe?</p>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" id="cancel-delete-btn">Cancel</button>
+        <button class="btn btn--danger" id="confirm-delete-btn">Delete Recipe</button>
+      </div>
+    </div>
+  </div>
 
-	<!-- Header bar -->
-	<header class="header">
-		<section class="container">
-			<!-- Header logo -->
-			<div class="header__logo">
-				<svg>
-					<use href="/src/img/Logo.svg#Logo"></use>
-				</svg>
-			</div>
-			<!-- Header search form -->
-			<div class="header__recipe-details">
-				<div class="header__recipe-created">
-					Created 2nd Dec 1988
-				</div>
-				<!-- <div class="header__recipe-updated">
-					Updated...
-				</div> -->
-			</div>
-			<div class="header__recipe-save">
-				<a href="#" class="button button--green" id="saveAndExit">Save and exit </a>
-			</div>
-		</section>
-	</header>
+  <!-- Header -->
+  <header class="header header--recipe">
+    <div class="container header__inner">
+      <a href="/" class="logo">
+        <span class="logo__icon">🍳</span>
+        <span class="logo__text">Recipe<span class="logo__accent">Keeper</span></span>
+      </a>
+      
+      <div class="recipe-meta-header">
+        <span class="recipe-meta-header__date" id="recipe-date"></span>
+      </div>
 
-	<!-- Main Home Container -->
-	<div class="container site-content">
+      <button class="btn btn--primary" id="save-exit-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+          <polyline points="17 21 17 13 7 13 7 21"></polyline>
+          <polyline points="7 3 7 8 15 8"></polyline>
+        </svg>
+        Save & Exit
+      </button>
+    </div>
+  </header>
 
-		<!-- Error box -->
-		<div class="message">
-			<div class="message__container">
-				<!-- <p class="message__error">Error: Please set meal type</p> -->
-			</div>
-		</div>
+  <!-- Main Content -->
+  <main class="main recipe-main">
+    <div class="container recipe-grid">
+      
+      <!-- Recipe Form -->
+      <section class="recipe-form-section">
+        <!-- Title -->
+        <div class="recipe-title-group">
+          <input 
+            type="text" 
+            id="recipe-title" 
+            class="recipe-title-input" 
+            placeholder="Enter your recipe title..."
+            maxlength="100"
+          >
+        </div>
 
-		<!-- Recipe container -->
-		<main class="recipe-container">
-			<section class="recipe__form">
+        <!-- Meta Info -->
+        <div class="recipe-meta-grid">
+          <!-- Rating -->
+          <div class="meta-card">
+            <label class="meta-card__label">Rating</label>
+            <div class="star-rating" id="star-rating">
+              <button class="star" data-value="1" aria-label="1 star">★</button>
+              <button class="star" data-value="2" aria-label="2 stars">★</button>
+              <button class="star" data-value="3" aria-label="3 stars">★</button>
+              <button class="star" data-value="4" aria-label="4 stars">★</button>
+              <button class="star" data-value="5" aria-label="5 stars">★</button>
+            </div>
+          </div>
 
-				<!-- Recipe title -->
-				<header class="recipe__form-labels">
-					<div class="recipe__form-labels-title">Title</div>
-					<div class="recipe__form-labels-edit"><a href="" id="editTitle">Edit</a></div>
-					<div class="recipe__form-labels-save"><a href="" id="saveTitle">Save</a></div>
-					<div class="recipe__form-title">
-						<h1></h1>
-						<input type="text" id="recipeTitle" placeholder="Enter the recipe title here..." style="display: none;">
-					</div>
-				</header>
+          <!-- Cooking Time -->
+          <div class="meta-card">
+            <label class="meta-card__label" for="cooking-time">Cooking Time</label>
+            <div class="time-input-group">
+              <input type="number" id="cooking-time" class="time-input" min="0" max="999" placeholder="0">
+              <span class="time-unit">min</span>
+            </div>
+          </div>
 
-				<!-- Recipe form details -->
-				<div class="recipe__form-details">
-					<div class="recipe__form-rating">
-						<span>Rating<br></span>
-						<ul id="ratingsRecipe">
-							<li class="star" data-value="1">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="2">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="3">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="4">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="5">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-						</ul>
-					</div>
-					<div class="recipe__form-time">
-						Cooking Time<br>
-						<input type="number" id="cookingTime"><label>minutes</label>
-					</div>
-					<div class="recipe__form-type">
-						Meal Type<br>
-						<form id="mealType">
-							<div>
-								<input type="radio" name=mealType” id="fishDish">
-								<label for="fishDish">
-									<svg class="fishDish">
-										<use href="/src/img/FishDish.svg#FishDish"></use>
-									</svg>
-								</label>
-							</div>
-							<div>
-								<input type="radio" name=mealType” id="vegDish">
-								<label for="vegDish" class="vegDish">
-									<svg class="vegDish">
-										<use href="/src/img/VegDish.svg#VegDish"></use>
-									</svg>
-								</label>
-							</div>
-							<div>
-								<input type="radio" name=mealType” id="meatDish">
-								<label for="meatDish" class="meatDish">
-									<svg class="meatDish">
-										<use href="/src/img/MeatDish.svg#MeatDish"></use>
-									</svg>
-								</label>
-							</div>
-						</form>
-					</div>
-				</div>
+          <!-- Meal Type -->
+          <div class="meta-card">
+            <label class="meta-card__label">Meal Type</label>
+            <div class="meal-type-selector" id="meal-type-selector">
+              <button class="meal-type-btn" data-type="fishDish" aria-label="Fish dish">
+                <span class="meal-type-btn__icon">🐟</span>
+                <span class="meal-type-btn__label">Fish</span>
+              </button>
+              <button class="meal-type-btn" data-type="vegDish" aria-label="Vegetarian dish">
+                <span class="meal-type-btn__icon">🥬</span>
+                <span class="meal-type-btn__label">Veggie</span>
+              </button>
+              <button class="meal-type-btn" data-type="meatDish" aria-label="Meat dish">
+                <span class="meal-type-btn__icon">🥩</span>
+                <span class="meal-type-btn__label">Meat</span>
+              </button>
+            </div>
+          </div>
+        </div>
 
-				<!-- Recipe instructions -->
-				<div class="recipe__form-instructions">
-					<!-- Recipe steps -->
-					<h2>Preperation instructions</h2>
-					<ol id="recipeSteps">
-						<!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button--delete delete-step">
-								<svg>
-									<use href="/src/img/Cross.svg#Cross"></use>
-								</svg>Delete
-							</a>
-						</li>
-						<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis lectus diam, sed eleifend nibh facilisis in. Duis suscipit eu lectus at cursus.
-							<a href="#" class="inline-button inline-button--delete delete-step">
-								<svg>
-									<use href="/src/img/Cross.svg#Cross"></use>
-								</svg>Delete
-							</a>
-						</li> -->
-					</ol>
+        <!-- Instructions -->
+        <div class="instructions-section">
+          <h2 class="section-subtitle">
+            <span class="section-subtitle__icon">📝</span>
+            Preparation Steps
+          </h2>
+          
+          <ol class="instructions-list" id="instructions-list">
+            <!-- Instructions render here -->
+          </ol>
 
-					<!-- Add a step button -->
-					<a href="#" id="addInstruction" class="inline-button inline-button--green">
-						<svg>
-							<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-						</svg>
-						Add</a>
+          <div class="add-instruction-wrapper">
+            <button class="btn btn--outline" id="add-instruction-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+              Add Step
+            </button>
+          </div>
 
-					<!-- Form to add a step -->
-					<form id="addInstructionForm" style="display: none;">
-						<textarea name="" cols="30" rows="10"></textarea>
-						<button class="button button--green">
-							<svg>
-								<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-							</svg>
-						</button>
-					</form>
-					<a href="#" class="button button--delete" id="deleteRecipe">Delete Recipe</a>
-				</div>
+          <form class="instruction-form" id="instruction-form" style="display: none;">
+            <textarea 
+              class="instruction-textarea" 
+              id="instruction-textarea"
+              placeholder="Describe this cooking step..."
+              rows="3"
+            ></textarea>
+            <div class="instruction-form__actions">
+              <button type="button" class="btn btn--ghost" id="cancel-instruction-btn">Cancel</button>
+              <button type="submit" class="btn btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Save Step
+              </button>
+            </div>
+          </form>
+        </div>
 
-			</section><!-- End of recipe form -->
-		</main><!-- End of recipe container -->
+        <!-- Delete Recipe -->
+        <div class="danger-zone">
+          <button class="btn btn--danger-outline" id="delete-recipe-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+            Delete Recipe
+          </button>
+        </div>
+      </section>
 
-		<!-- Shopping list -->
-		<aside class="shopping-container">
-			<!-- List title -->
-			<header class="shopping__title">
-				<h2>Ingredients</h2>
-			</header>
+      <!-- Ingredients Sidebar -->
+      <aside class="ingredients-sidebar">
+        <div class="ingredients-card">
+          <div class="ingredients-card__header">
+            <h2 class="ingredients-card__title">
+              <span class="ingredients-card__icon">🥕</span>
+              Ingredients
+            </h2>
+          </div>
+          
+          <ul class="ingredients-list" id="ingredients-list">
+            <!-- Ingredients render here -->
+          </ul>
 
-			<!-- Shopping list -->
-			<ul id="shoppingList">
-				<!-- <li>Potatoes
-					<a href="#" class="inline-button inline-button--delete delete-ingredient">
-						<svg>
-							<use href="/src/img/Cross.svg#Cross"></use>
-						</svg>Delete
-					</a>
-				</li>
-				<li>Potatoes
-					<a href="#" class="inline-button inline-button--delete delete-ingredient">
-						<svg>
-							<use href="/src/img/Cross.svg#Cross"></use>
-						</svg>Delete
-					</a>
-				</li> -->
-			</ul>
+          <div class="ingredients-empty" id="ingredients-empty">
+            <span class="ingredients-empty__icon">🥗</span>
+            <p>No ingredients added yet</p>
+          </div>
 
-			<!-- Add item to list -->
-			<a href="#" id="addIngredient" class="inline-button inline-button--green">
-				<svg>
-					<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-				</svg>
-				Add</a>
+          <div class="add-ingredient-wrapper">
+            <button class="btn btn--outline btn--block" id="add-ingredient-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+              Add Ingredient
+            </button>
+          </div>
 
-			<!-- Form for new items -->
-			<form id="addIngredientForm" style="display: none;">
-				<input type="text" name="ingredient">
-				<button class="button button--green">
-					<svg>
-						<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-					</svg>
-				</button>
-			</form>
+          <form class="ingredient-form" id="ingredient-form" style="display: none;">
+            <input 
+              type="text" 
+              class="ingredient-input" 
+              id="ingredient-input"
+              placeholder="e.g., 2 cups flour"
+            >
+            <button type="submit" class="btn btn--primary btn--icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+          </form>
 
-			<!-- Delete all items in list -->
-			<a href="#" class="button button--delete" id="deleteIngredients">Delete All Ingredients</a>
-		</aside>
+          <button class="btn btn--ghost btn--block btn--sm" id="clear-ingredients-btn">
+            Clear All Ingredients
+          </button>
+        </div>
+      </aside>
 
-	</div><!-- End of container -->
+    </div>
+  </main>
 
-	<!-- FOOTER -->
-	<footer>
-		<div class="container">
-			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88" target="_blank">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/" target="_blank">LinkedIn</a> --- Icons from <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></p>
-		</div>
-	</footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Crafted with <span class="heart">♥</span> by Dmitry Osipchuk — <span id="current-year"></span></p>
+      <div class="footer__links">
+        <a href="https://github.com/do88" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/osipchuk/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
-	<script src="/src/js/app.js"></script>
+  <script type="module" src="/src/ts/recipe.ts"></script>
 </body>
-
 </html>

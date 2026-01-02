@@ -1,205 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Recipe Keeper - Your Favourite Recipes</title>
-	<link rel="icon" href="/src/img/Favicon.png">
-	<link rel="stylesheet" href="/src/scss/main.scss">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Keeper — Your Culinary Collection</title>
+  <link rel="icon" href="/src/img/Favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
 </head>
+<body>
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
 
-<body class="site">
-	<!-- Header bar -->
-	<header class="header">
-		<div class="container">
-			<!-- Header logo -->
-			<div class="header__logo">
-				<svg>
-					<use href="/src/img/Logo.svg#Logo"></use>
-				</svg>
-			</div>
-			<!-- Header search form -->
-			<div class="header__search-form">
-				<svg>
-					<use href="/src/img/SearchGlass.svg#SearchGlass"></use>
-				</svg>
-				<input type="text" id="recipeSearch" placeholder="Filter your recipes here…">
-			</div>
-		</div>
-	</header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="logo">
+        <span class="logo__icon">🍳</span>
+        <span class="logo__text">Recipe<span class="logo__accent">Keeper</span></span>
+      </a>
+      
+      <div class="search-bar">
+        <svg class="search-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" id="search-input" class="search-bar__input" placeholder="Search your recipes...">
+      </div>
 
-	<!-- Main Home Container -->
-	<main class="container site-content">
+      <button class="btn btn--primary" id="add-recipe-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12h14"></path>
+        </svg>
+        Add Recipe
+      </button>
+    </div>
+  </header>
 
-		<!-- Recipe container -->
-		<section class="recipe-container">
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container main__grid">
+      
+      <!-- Recipe Section -->
+      <section class="recipes-section">
+        <div class="section-header">
+          <h1 class="section-title">
+            <span class="section-title__icon">📖</span>
+            My Recipes
+          </h1>
+          <div class="recipe-count" id="recipe-count">0 recipes</div>
+        </div>
+        
+        <div class="recipes-grid" id="recipes-grid">
+          <!-- Recipe cards render here -->
+        </div>
 
-			<!-- Recipe title bar -->
-			<header class="recipe__title-bar">
-				<h1>Recipes</h1>
-				<!-- <select id="sortOrder">
-					<option value="" selected>Choose recipe order</option>
-					<option value="type">Meal Type</option>
-					<option value="alpha">Alphabetical</option>
-					<option value="date">Date Created</option>
-				</select> -->
-				<a href="#" class="button button--green" id="addRecipe">Add Recipe</a>
-			</header>
+        <div class="empty-state" id="empty-state" style="display: none;">
+          <div class="empty-state__icon">🥗</div>
+          <h3 class="empty-state__title">No recipes yet!</h3>
+          <p class="empty-state__text">Start building your culinary collection by adding your first recipe.</p>
+          <button class="btn btn--primary" id="add-first-recipe-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+            Add Your First Recipe
+          </button>
+        </div>
+      </section>
 
-			<h2 class="recipe__messages"></h2>
+      <!-- Shopping List Sidebar -->
+      <aside class="shopping-sidebar">
+        <div class="shopping-card">
+          <div class="shopping-card__header">
+            <h2 class="shopping-card__title">
+              <span class="shopping-card__icon">🛒</span>
+              Shopping List
+            </h2>
+            <button class="btn btn--ghost btn--sm" id="clear-shopping-btn">Clear All</button>
+          </div>
+          
+          <ul class="shopping-list" id="shopping-list">
+            <!-- Shopping items render here -->
+          </ul>
 
-			<div id="recipeEntries">
-				<!-- Recipe entry -->
-				<!-- <article class="recipe__entry 01">
-					<div class="recipe__meta">
-						<div class="recipe__rating">
-							<span>Rating: </span>
-							<ul id="ratingsHome">
-							<li class="star" data-value="1">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="2">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="3">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="4">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							<li class="star" data-value="5">
-								<svg>
-									<use href="/src/img/StarGrey.svg#StarGrey"></use>
-								</svg>
-							</li>
-							</ul>
+          <div class="shopping-empty" id="shopping-empty">
+            <span class="shopping-empty__icon">📝</span>
+            <p>Add ingredients from any recipe to build your shopping list</p>
+          </div>
+        </div>
+      </aside>
 
-						</div>
-						<div class="recipe__time">
-							Cooking Time: <span>45min</span>
-						</div>
-						<div class="recipe__created">
-							Created: <span>6 days ago</span>
-						</div>
-						<div class="recipe__type">
-							<svg>
-								<use href="/src/img/FishDish.svg#FishDish"></use>
-							</svg>
-						</div>
-					</div>
-					<div class="recipe__title">
-						<a href="#">
-							<h3>Jacket potatoes with tuna and spring onions</h3>
-						</a>
-					</div>
-					<div class="recipe__list-button">
-						<a href="#" class="inline-button inline-button--green">
-							<svg>
-								<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-							</svg>
-							Add to basket
-						</a>
-					</div>
-				</article> -->
-				<!-- Recipe entry -->
-				<!-- <article class="recipe__entry 02">
-					<div class="recipe__meta">
-						<div class="recipe__rating">
-							<span>Rating: </span>
-							<ul id="ratingsHome">
-								<li>
-									<svg>
-										<use href="/src/img/StarGrey.svg#StarGrey"></use>
-									</svg>
-								</li>
-								<li>
-									<svg>
-										<use href="/src/img/StarGrey.svg#StarGrey"></use>
-									</svg>
-								</li>
-								<li>
-									<svg>
-										<use href="/src/img/StarGrey.svg#StarGrey"></use>
-									</svg>
-								</li>
-								<li>
-									<svg>
-										<use href="/src/img/StarGrey.svg#StarGrey"></use>
-									</svg>
-								</li>
-								<li>
-									<svg>
-										<use href="/src/img/StarGrey.svg#StarGrey"></use>
-									</svg>
-								</li>
-							</ul>
+    </div>
+  </main>
 
-						</div>
-						<div class="recipe__time">
-							Cooking Time: <span>45min</span>
-						</div>
-						<div class="recipe__created">
-							Created: <span>6 days ago</span>
-						</div>
-						<div class="recipe__type">
-							<svg>
-								<use href="/src/img/FishDish.svg#FishDish"></use>
-							</svg>
-						</div>
-					</div>
-					<div class="recipe__title">
-						<a href="#">
-							<h3>Pancakes</h3>
-						</a>
-					</div>
-					<div class="recipe__list-button">
-						<a href="#" class="inline-button inline-button--green">
-							<svg>
-								<use href="/src/img/PlusSymbol.svg#PlusSymbol"></use>
-							</svg>
-							Add to basket
-						</a>
-					</div>
-				</article> -->
-			</div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Crafted with <span class="heart">♥</span> by Dmitry Osipchuk — <span id="current-year"></span></p>
+      <div class="footer__links">
+        <a href="https://github.com/do88" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/osipchuk/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
-		</section><!-- End of recipe container -->
-
-		<!-- Shopping list -->
-		<aside class="shopping-container">
-			<header class="shopping__title">
-				<h2>Shopping List</h2>
-				<a href="#" class="button button--red" id="clearShopping">Clear</a>
-			</header>
-			<ul id="shoppingList">
-				<!-- <li>Potatoes</li>
-				<li>Tin of tuna</li>
-				<li>Spring onions</li> -->
-			</ul>
-			<!-- <a href="" class="button button--purple" id="printShopping">Print shopping list</a> -->
-		</aside>
-
-	</main><!-- End of container -->
-
-	<!-- FOOTER -->
-	<footer>
-		<div class="container">
-			<p>Copyright © <span>2019</span> Dmitry Osipchuk --- Find me on <a href="https://github.com/do88" target="_blank">GitHub</a> or <a href="https://www.linkedin.com/in/osipchuk/" target="_blank">LinkedIn</a> --- Icons from <a href="https://www.flaticon.com/" target="_blank">www.flaticon.com</a></p>
-		</div>
-	</footer>
-
-
-	<script src="/src/js/app.js"></script>
+  <script type="module" src="/src/ts/home.ts"></script>
 </body>
-
 </html>

@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Handle SPA-style routing for recipe pages
+[[redirects]]
+  from = "/recipe.html"
+  to = "/recipe.html"
+  status = 200
+
+# Fallback for any other routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
